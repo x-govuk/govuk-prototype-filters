@@ -1,0 +1,9 @@
+{
+  "nunjucksFilters": [
+    "/lib/array.js",
+    "/lib/date.js",
+    "/lib/number.js",
+    "/lib/object.js",
+    "/lib/string.js"
+  ]
+}

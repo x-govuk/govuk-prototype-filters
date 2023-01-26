@@ -1,0 +1,59 @@
+{
+  "name": "govuk-prototype-filters",
+  "version": "0.0.0",
+  "description": "Nunjucks filters for use with the GOV.UK Prototype Kit",
+  "keywords": [
+    "prototyping",
+    "government",
+    "govuk-prototype-kit"
+  ],
+  "homepage": "https://x-govuk.github.io/govuk-prototype-filters/",
+  "bugs": {
+    "url": "https://github.com/x-govuk/govuk-prototype-filters/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "lib",
+    "govuk-prototype-kit.config.json"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x-govuk/govuk-prototype-filters.git"
+  },
+  "scripts": {
+    "build-docs": "eleventy",
+    "watch-docs": "eleventy --serve",
+    "lint": "standard",
+    "test": "ava",
+    "coverage": "c8 ava"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "govuk-markdown": "^0.3.0",
+    "lodash": "^4.17.21",
+    "luxon": "^3.2.1",
+    "marked": "^4.2.12"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "ava": "^5.1.1",
+    "c8": "^7.12.0",
+    "govuk-eleventy-plugin": "^4.0.0",
+    "standard": "^17.0.0"
+  },
+  "peerDependencies": {
+    "govuk-prototype-kit": "^13.0.0"
+  },
+  "engines": {
+    "node": "^16 || ^18"
+  },
+  "c8": {
+    "reporter": [
+      "text",
+      "lcovonly"
+    ]
+  }
+}
