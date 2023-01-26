@@ -1,6 +1,6 @@
 {
   "name": "govuk-prototype-filters",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Nunjucks filters for use with the GOV.UK Prototype Kit",
   "keywords": [
     "prototyping",
