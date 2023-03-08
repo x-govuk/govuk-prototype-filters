@@ -38,10 +38,10 @@
     "marked": "^4.2.12"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy": "^2.0.0",
+    "@x-govuk/govuk-eleventy-plugin": "^5.0.0",
     "ava": "^5.1.1",
     "c8": "^7.12.0",
-    "govuk-eleventy-plugin": "^4.0.0",
     "standard": "^17.0.0"
   },
   "peerDependencies": {
