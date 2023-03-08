@@ -30,7 +30,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Build with Eleventy
-      run: npm run-script build-docs
+      run: npm run-script build
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
 

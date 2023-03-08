@@ -22,8 +22,8 @@
     "url": "git+https://github.com/x-govuk/govuk-prototype-filters.git"
   },
   "scripts": {
-    "build-docs": "eleventy",
-    "watch-docs": "eleventy --serve",
+    "build": "eleventy --quiet",
+    "start": "eleventy --serve --quiet",
     "lint": "standard",
     "test": "ava",
     "coverage": "c8 ava"
