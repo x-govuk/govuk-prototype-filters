@@ -46,7 +46,7 @@ test('Selects items in an array that have a key with a given value', t => {
 
 test('Returns an array that contains only unique items', t => {
   t.deepEqual(
-    uniqueArray(['Orange','Banana','Apple','Orange']),
-    ['Orange','Banana','Apple']
+    uniqueArray(['Orange', 'Banana', 'Apple', 'Orange']),
+    ['Orange', 'Banana', 'Apple']
   )
 })
