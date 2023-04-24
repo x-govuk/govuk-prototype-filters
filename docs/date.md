@@ -97,18 +97,57 @@ You submitted your application at 4:32pm.
 
 ## isoDateFromDateInput
 
-Convert decorated `govukDateInput` values to an ISO 8601 date.
+The `govukDateInput` component stores separate values for `day`, `month` and `year` values.
 
-The `decorate()` method applied to a `govukDateInput` creates an object with `day`, `month` and `year` values. This filter will convert this into an ISO 8601 formatted date.
+When prefixed using a `namePrefix`, these values are stored with names prefixed with that value. This filter takes these prefixed values and converts them into an ISO 8601 formatted date.
 
 Input
 
+```js
+const data = {
+  `dob-day`: '01',
+  `dob-month`: '02',
+  `dob-year`: '2012',
+}
+```
+
 ```njk
-{{ { day: '17', month: '08', year: '2021' } | isoDateFromDateInput }}
+{{ data | isoDateFromDateInput("dob") }}
 ```
 
 Output
 
 ```html
-2021-08-17
+2012-02-01
+```
+
+Combine this filter with `govukDate` to output a human readable date:
+
+```njk
+{{ data | isoDateFromDateInput("dob") | govukDate }}
+```
+
+```html
+1 February 2012
+```
+
+It’s possible to configure `govukDateInput` so that only certain parts of a date are asked for, such as a month and year. You can also omit the `namePrefix` option and use individual `name` options for each value if you want to save them in a nested object. This filter also covers that use case:
+
+```js
+const data = {
+  passport: {
+    month: '5',
+    year: '2001',
+  }
+}
+```
+
+```njk
+{{ data.passport | isoDateFromDateInput }}
+```
+
+Output
+
+```html
+2001-05
 ```
