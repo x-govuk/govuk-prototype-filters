@@ -24,7 +24,7 @@
   "scripts": {
     "build": "eleventy --quiet",
     "start": "eleventy --serve --quiet",
-    "lint": "standard",
+    "lint": "eslint '**/*.js'",
     "test": "ava",
     "coverage": "c8 ava"
   },
@@ -42,7 +42,8 @@
     "@x-govuk/govuk-eleventy-plugin": "^5.0.0",
     "ava": "^5.1.1",
     "c8": "^7.12.0",
-    "standard": "^17.0.0"
+    "eslint": "^8.39.0",
+    "eslint-config-standard": "^17.0.0"
   },
   "peerDependencies": {
     "govuk-prototype-kit": "^13.0.0"
@@ -55,5 +56,16 @@
       "text",
       "lcovonly"
     ]
-  }
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "standard"
+    ]
+  },
+  "eslintIgnore": [
+    "_site"
+  ]
 }
