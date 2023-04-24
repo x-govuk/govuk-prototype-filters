@@ -3,7 +3,8 @@ import {
   formatList,
   isArray,
   rejectFromArray,
-  selectFromArray
+  selectFromArray,
+  uniqueFromArray
 } from '../lib/array.js'
 
 test.before(t => {
@@ -41,4 +42,11 @@ test('Selects items in an array that have a key with a given value', t => {
     name: 'Sally Smith',
     role: 'admin'
   }])
+})
+
+test('Returns an array that contains only unique items', t => {
+  t.deepEqual(
+    uniqueFromArray(['Orange', 'Banana', 'Apple', 'Orange']),
+    ['Orange', 'Banana', 'Apple']
+  )
 })

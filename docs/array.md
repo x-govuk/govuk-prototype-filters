@@ -100,3 +100,20 @@ Output
   role: "admin"
 }]
 ```
+
+
+## uniqueFromArray
+
+Returns an array that contains only unique items.
+
+Input
+
+```njk
+{{ ['Orange', 'Banana', 'Apple', 'Orange'] | uniqueFromArray }}
+```
+
+Output
+
+```html
+[Orange, Banana, Apple]
+```
