@@ -36,22 +36,22 @@ test('Returns error converting an ISO 8601 date time to a time using the GOV.UK 
   t.is(govukTime('2021-08-17T25:61:00'), 'Invalid DateTime')
 })
 
-test('Converts decorated `govukDateInput` values to an ISO 8601 date', t => {
+test('Converts `govukDateInput` values to ISO 8601 date', t => {
   t.is(isoDateFromDateInput({
-    day: '17',
-    month: '08',
-    year: '2021'
-  }), '2021-08-17')
-  t.is(isoDateFromDateInput({
-    month: '08',
-    year: '2021'
-  }), '2021-08')
+    day: '01',
+    month: '02',
+    year: '2012'
+  }), '2012-02-01')
 })
 
-test('Doesn’t covert value to an ISO 8601 date if not an object', t => {
-  t.is(isoDateFromDateInput('2021-08-17T12:49:05'), '2021-08-17T12:49:05')
+test('Converts `govukDateInput` values with `namePrefix` to ISO 8601 date', t => {
+  t.is(isoDateFromDateInput({
+    'example-day': '01',
+    'example-month': '02',
+    'example-year': '2012'
+  }, 'example'), '2012-02-01')
 })
 
-test('Returns error converting decorated `govukDateInput` values to an ISO 8601 date', t => {
+test('Returns error converting `govukDateInput` values to an ISO 8601 date', t => {
   t.is(isoDateFromDateInput({ foo: 'bar' }), 'Invalid DateTime')
 })
