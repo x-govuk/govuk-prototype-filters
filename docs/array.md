@@ -109,7 +109,7 @@ Returns an array that contains only unique items.
 Input
 
 ```njk
-{{ ['Orange', 'Banana', 'Apple', 'Orange'] | uniqueArray }}
+{{ ['Orange', 'Banana', 'Apple', 'Orange'] | uniqueFromArray }}
 ```
 
 Output
