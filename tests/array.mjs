@@ -4,7 +4,7 @@ import {
   isArray,
   rejectFromArray,
   selectFromArray,
-  uniqueArray
+  uniqueFromArray
 } from '../lib/array.js'
 
 test.before(t => {
@@ -46,7 +46,7 @@ test('Selects items in an array that have a key with a given value', t => {
 
 test('Returns an array that contains only unique items', t => {
   t.deepEqual(
-    uniqueArray(['Orange', 'Banana', 'Apple', 'Orange']),
+    uniqueFromArray(['Orange', 'Banana', 'Apple', 'Orange']),
     ['Orange', 'Banana', 'Apple']
   )
 })

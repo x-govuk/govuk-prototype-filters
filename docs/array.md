@@ -102,18 +102,18 @@ Output
 ```
 
 
-## uniqueArray
+## uniqueFromArray
 
 Returns an array that contains only unique items.
 
 Input
 
 ```njk
-{{ ['Orange','Banana','Apple','Orange'] | uniqueArray }}
+{{ ['Orange', 'Banana', 'Apple', 'Orange'] | uniqueArray }}
 ```
 
 Output
 
 ```html
-Orange,Banana,Apple
+[Orange, Banana, Apple]
 ```
