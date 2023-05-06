@@ -16,7 +16,9 @@ test('Converts a number into an ordinal numeral', t => {
 })
 
 test('Converts a number into a string formatted as pound sterling', t => {
-  t.is(sterling(81932), '£81,932.00')
+  t.is(sterling(81932), '£81,932')
   t.is(sterling(133.66667), '£133.67')
-  t.is(sterling(6.83), '£6.83')
+  t.is(sterling(75.50), '£75.50')
+  t.is(sterling(75.00), '£75')
+  t.is(sterling(75.00, true), '£75.00')
 })

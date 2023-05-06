@@ -41,20 +41,34 @@ fourth
 
 ## sterling
 
-Convert a number into a string formatted as pound sterling. This can be useful for converting numbers into a human readable price.
+Convert a number into a string formatted as pound sterling and that follows [the GOV.UK style](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#money).
 
 Input
 
 ```njk
 {{ 81932 | sterling }}
 {{ 133.66667 | sterling }}
-{{ 6.83 | sterling }}
+{{ 75.50 | sterling }}
+{{ 75.00 | sterling }}
 ```
 
 Output
 
 ```html
-£81,932.00
+£81,932
 £133.67
-£6.83
+£75.50
+£75
+```
+
+The GOV.UK style guide recommends not using decimals unless pence are included. If you always want to use decimals (for example, to help compare values in a table), include `true` in the filter’s parameter:
+
+```njk
+{{ 75.00 | sterling(true) }}
+```
+
+Output
+
+```html
+£75.00
 ```
