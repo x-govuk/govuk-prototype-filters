@@ -151,3 +151,33 @@ Output
 ```html
 2001-05
 ```
+
+## monthName
+
+Convert a number (between 1 and 12) to the name of the corresponding month.
+
+Input
+
+```njk
+{{ 3 | monthName }}
+```
+
+Output
+
+```html
+March
+```
+
+You can also output a truncated month name:
+
+Input
+
+```njk
+{{ 3 | monthName("truncate") }}
+```
+
+Output
+
+```html
+Mar
+```

@@ -2,7 +2,8 @@ import test from 'ava'
 import {
   govukDate,
   govukTime,
-  isoDateFromDateInput
+  isoDateFromDateInput,
+  monthName
 } from '../lib/date.js'
 
 const now = Date.now()
@@ -54,4 +55,11 @@ test('Converts `govukDateInput` values with `namePrefix` to ISO 8601 date', t =>
 
 test('Returns error converting `govukDateInput` values to an ISO 8601 date', t => {
   t.is(isoDateFromDateInput({ foo: 'bar' }), 'Invalid DateTime')
+})
+
+test('Converts a number into name of corresponding month.', t => {
+  t.is(monthName(3), 'March')
+  t.is(monthName('3'), 'March')
+  t.is(monthName(3, "truncate"), 'Mar')
+  t.is(monthName('3', "truncate"), 'Mar')
 })
