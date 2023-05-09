@@ -1,11 +1,18 @@
 import test from 'ava'
 import {
+  dateFromNow,
   govukDate,
   govukTime,
   isoDateFromDateInput
 } from '../lib/date.js'
 
 const now = Date.now()
+
+test('Adds 5 days to todays date', t => {
+  const dt = new Date()
+  dt.setDate(dt.getDate() + 5)
+  t.is(String(dateFromNow(5)).substring(0, 10), dt.toISOString().substring(0, 10))
+})
 
 test('Converts an ISO 8601 date time to a date using the GOV.UK style', t => {
   t.is(govukDate('2021-08-17'), '17 August 2021')

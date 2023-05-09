@@ -3,6 +3,22 @@ title: Date filters
 order: 2
 ---
 
+## dateFromNow
+
+Return a date a certain number of days from now.
+
+Input
+
+```njk
+{{ 5 | dateFromNow }}
+```
+
+Output
+
+```html
+2023-05-14
+```
+
 ## govukDate
 
 Convert an ISO 8601 date time to a human readable date that follows [the GOV.UK style](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#dates).
