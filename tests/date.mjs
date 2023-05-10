@@ -11,7 +11,7 @@ const now = Date.now()
 test('Adds 5 days to todays date', t => {
   const dt = new Date()
   dt.setDate(dt.getDate() + 5)
-  t.is(String(dateFromNow(5)).substring(0, 10), dt.toISOString().substring(0, 10))
+  t.is((dateFromNow(5)).substring(0, 10), dt.toISOString().substring(0, 10))
 })
 
 test('Converts an ISO 8601 date time to a date using the GOV.UK style', t => {

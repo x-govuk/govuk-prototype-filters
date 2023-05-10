@@ -16,7 +16,7 @@ Input
 Output
 
 ```html
-2023-05-14
+2023-05-14T09:00:59
 ```
 
 ## govukDate
