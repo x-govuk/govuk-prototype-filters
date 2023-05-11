@@ -3,20 +3,78 @@ title: Date filters
 order: 2
 ---
 
-## dateFromNow
+## duration
 
-Return a date a certain number of days from now.
+Returns a date a certain number of days from another date. 
 
 Input
 
 ```njk
-{{ 5 | dateFromNow }}
+{{ "2023-05-11" | duration(5, "days") }}
 ```
 
 Output
 
 ```html
-2023-05-14T09:00:59
+2023-05-16T00:00:00.000+01:00
+```
+
+Input
+
+```njk
+{{ "2023-05-11" | duration(5, "weeks") }}
+```
+
+Output
+
+```html
+2023-06-15T00:00:00.000+01:00
+```
+
+Input
+
+```njk
+{{ "2023-05-11" | duration(5, "months") }}
+```
+Output
+
+```html
+2023-10-11T00:00:00.000+01:00
+```
+
+Input
+
+```njk
+{{ "2023-05-11" | duration(5, "years") }}
+```
+Output
+
+```html
+2028-05-11T00:00:00.000+01:00
+```
+
+To returns a date from todays date, pass the special word `"today"` (or `"now"`):
+
+Input
+
+```njk
+{{ "today" | duration(5, "days") }}
+```
+Output
+```html
+2023-05-11T09:00:59
+```
+
+If a unit is not passed the second parameter the unit will default to days
+
+Input
+
+```njk
+{{ "today" | duration(5) }}
+```
+Output
+```html
+2023-05-11T09:00:59
 ```
 
 ## govukDate

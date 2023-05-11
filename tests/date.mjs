@@ -1,6 +1,6 @@
 import test from 'ava'
 import {
-  dateFromNow,
+  duration,
   govukDate,
   govukTime,
   isoDateFromDateInput
@@ -8,10 +8,19 @@ import {
 
 const now = Date.now()
 
-test('Adds 5 days to todays date', t => {
+test('Return a date a certain number of days from another date', t => {
   const dt = new Date()
   dt.setDate(dt.getDate() + 5)
-  t.is((dateFromNow(5)).substring(0, 10), dt.toISOString().substring(0, 10))
+  t.is((duration('today', 5)).substring(0, 10), dt.toISOString().substring(0, 10))
+  t.is((duration('2023-05-11', 5)), '2023-05-16T00:00:00.000+01:00')
+  t.is((duration('2023-05-11', 5, 'days')), '2023-05-16T00:00:00.000+01:00')
+  t.is((duration('2023-05-11', 5, 'weeks')), '2023-06-15T00:00:00.000+01:00')
+  t.is((duration('2023-05-11', 5, 'months')), '2023-10-11T00:00:00.000+01:00')
+  t.is((duration('2023-05-11', 5, 'years')), '2028-05-11T00:00:00.000+01:00')
+})
+
+test('Returns error trying to return a date from another date', t => {
+  t.is(duration('2021-23-45', 5), 'Invalid DateTime')
 })
 
 test('Converts an ISO 8601 date time to a date using the GOV.UK style', t => {
