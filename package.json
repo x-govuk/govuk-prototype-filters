@@ -44,7 +44,7 @@
     "c8": "^7.12.0",
     "eslint": "^8.39.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-jsdoc": "^43.1.0"
+    "eslint-plugin-jsdoc": "^44.2.0"
   },
   "peerDependencies": {
     "govuk-prototype-kit": "^13.0.0"
