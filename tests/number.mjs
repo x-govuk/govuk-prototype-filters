@@ -1,9 +1,24 @@
 import test from 'ava'
 import {
+  currency,
   isNumber,
-  ordinal,
-  sterling
+  ordinal
 } from '../lib/number.js'
+
+test('Converts a number into a string formatted as currency', t => {
+  t.is(currency(81932), '£81,932.00')
+  t.is(currency(133.66667), '£133.67')
+  t.is(currency(75.5), '£75.50')
+  t.is(currency(75, { unit: 'USD' }), 'US$75.00')
+  t.is(currency(75, { display: 'symbol', unit: 'USD' }), 'US$75.00')
+  t.is(currency(75, { display: 'code', unit: 'USD' }), 'USD\u00A075.00')
+  t.is(currency(75.0015, { trailingZeros: false }), '£75')
+  t.is(currency(75, {
+    display: 'name',
+    trailingZeros: false,
+    unit: 'USD',
+  }), '75.00 US dollars')
+})
 
 test('Checks if a value is classified as a `Number` primitive or object', t => {
   t.true(isNumber(1801))
@@ -13,12 +28,4 @@ test('Checks if a value is classified as a `Number` primitive or object', t => {
 test('Converts a number into an ordinal numeral', t => {
   t.is(ordinal(4), 'fourth')
   t.is(ordinal(22), '22nd')
-})
-
-test('Converts a number into a string formatted as pound sterling', t => {
-  t.is(sterling(81932), '£81,932')
-  t.is(sterling(133.66667), '£133.67')
-  t.is(sterling(75.50), '£75.50')
-  t.is(sterling(75.00), '£75')
-  t.is(sterling(75.00, true), '£75.00')
 })

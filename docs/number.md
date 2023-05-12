@@ -3,6 +3,91 @@ title: Number filters
 order: 3
 ---
 
+## currency
+
+Convert a number into a string formatted as currency.
+
+Input
+
+```njk
+{{ 133.66667 | currency }}
+{{ 75.5 | currency }}
+{{ 75 | currency }}
+```
+
+Output
+
+```html
+£133.67
+£75.50
+£75.00
+```
+
+### Options
+
+#### `display`
+
+Use the `display` option to change how the currency is displayed. Accepts the following values:
+
+* `"narrowSymbol"`: use a narrow format symbol, for example ‘$100’.
+* `"symbol"`: use a localized currency symbol, for example ‘US$100’.
+* `"code"`: use the ISO 4217 currency code, for example ‘USD $75.00’.
+* `"name"`: use a localised currency name, for example ‘75.00 US dollars’.
+
+Default is `"symbol"`.
+
+Input
+
+```njk
+{{ 75 | currency(display="narrowSymbol", unit="USD") }}
+{{ 75 | currency(display="symbol", unit="USD") }}
+{{ 75 | currency(display="code", unit="USD") }}
+{{ 75 | currency(display="name", unit="USD") }}
+```
+
+Output
+
+```html
+$75.00
+US$75.00
+USD $75.00
+75.00 US dollars
+```
+
+#### `trailingZeros`
+
+Use the `trailingZeros` option to show leading zeros for whole number values. Default is `true`.
+
+> Set this option to `false` to display pounds and pence in a format that follows [the GOV.UK style for money](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#money).
+
+Input
+
+```njk
+{{ 75.0015 | currency(trailingZeros=false) }}
+```
+
+Output
+
+```html
+£75
+```
+
+#### `unit`
+
+Use the `unit` option to change the unit of currency. Accepts an [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). Default is `"GBP"`.
+
+Input
+
+```njk
+{{ 75 | currency(unit="USD") }}
+```
+
+Output
+
+```html
+US$75.00
+```
+
 ## isNumber
 
 Checks if a value is classified as a [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) primitive or object.
@@ -37,38 +122,4 @@ Output
 ```html
 fourth
 22nd
-```
-
-## sterling
-
-Convert a number into a string formatted as pound sterling and that follows [the GOV.UK style](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#money).
-
-Input
-
-```njk
-{{ 81932 | sterling }}
-{{ 133.66667 | sterling }}
-{{ 75.50 | sterling }}
-{{ 75.00 | sterling }}
-```
-
-Output
-
-```html
-£81,932
-£133.67
-£75.50
-£75
-```
-
-The GOV.UK style guide recommends not using decimals unless pence are included. If you always want to use decimals (for example, to help compare values in a table), include `true` in the filter’s parameter:
-
-```njk
-{{ 75.00 | sterling(true) }}
-```
-
-Output
-
-```html
-£75.00
 ```
