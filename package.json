@@ -50,7 +50,7 @@
     "govuk-prototype-kit": "^13.0.0"
   },
   "engines": {
-    "node": "^16 || ^18"
+    "node": "^18"
   },
   "c8": {
     "reporter": [

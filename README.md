@@ -10,7 +10,7 @@ A collection of Nunjucks template filters to manipulate and transform:
 
 ## Requirements
 
-Node.js v16 or later.
+Node.js v18 or later.
 
 ## Installation
 
