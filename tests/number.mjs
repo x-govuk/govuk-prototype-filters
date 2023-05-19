@@ -2,7 +2,8 @@ import test from 'ava'
 import {
   currency,
   isNumber,
-  ordinal
+  ordinal,
+  pluralise
 } from '../lib/number.js'
 
 test('Converts a number into a string formatted as currency', t => {
@@ -28,4 +29,12 @@ test('Checks if a value is classified as a `Number` primitive or object', t => {
 test('Converts a number into an ordinal numeral', t => {
   t.is(ordinal(4), 'fourth')
   t.is(ordinal(22), '22nd')
+})
+
+test('Gets the plural form for an item for a given number of items', t => {
+  t.is(pluralise(1, 'mouse'), '1 mouse')
+  t.is(pluralise(2, 'house'), '2 houses')
+  t.is(pluralise(2, 'house', { number: false }), 'houses')
+  t.is(pluralise(2, 'mouse', { plural: 'mice' }), '2 mice')
+  t.is(pluralise(2, 'mouse', { plural: 'mice', number: false }), 'mice')
 })
