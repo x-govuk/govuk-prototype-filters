@@ -124,26 +124,40 @@ fourth
 22nd
 ```
 
-## pluralise
+## plural
 
-Get the plural form for an item for a given number of items.
+Get the plural word form for an item for a given number.
 
 > This filter currently only works with English words.
 
 ```njk
-{{ 1 | pluralise("mouse") }}
-{{ 2 | pluralise("house") }}
-{{ 2 | pluralise("house", { number: false }) }}
-{{ 2 | pluralise("mouse", { plural: "mice" }) }}
-{{ 2 | pluralise("mouse", { plural: "mice", number: false }) }}
+{{ 1 | plural("mouse") }}
+{{ 2 | plural("mouse") }}
 ```
 
 Output
 
 ```html
 1 mouse
-2 houses
-houses
 2 mice
+```
+
+### Options
+
+#### `showNumber`
+
+Use the `showNumber` option to show number alongside the pluralised word. Default is `true`.
+
+Input
+
+```njk
+{{ 1 | plural("mouse", showNumber=false) }}
+{{ 2 | plural("mouse", showNumber=false) }}
+```
+
+Output
+
+```html
+mouse
 mice
 ```

@@ -3,7 +3,7 @@ import {
   currency,
   isNumber,
   ordinal,
-  pluralise
+  plural
 } from '../lib/number.js'
 
 test('Converts a number into a string formatted as currency', t => {
@@ -31,10 +31,8 @@ test('Converts a number into an ordinal numeral', t => {
   t.is(ordinal(22), '22nd')
 })
 
-test('Gets the plural form for an item for a given number of items', t => {
-  t.is(pluralise(1, 'mouse'), '1 mouse')
-  t.is(pluralise(2, 'house'), '2 houses')
-  t.is(pluralise(2, 'house', { number: false }), 'houses')
-  t.is(pluralise(2, 'mouse', { plural: 'mice' }), '2 mice')
-  t.is(pluralise(2, 'mouse', { plural: 'mice', number: false }), 'mice')
+test('Gets the plural word form for an item for a given number', t => {
+  t.is(plural(1, 'mouse'), '1 mouse')
+  t.is(plural(2, 'mouse'), '2 mice')
+  t.is(plural(2, 'mouse', { showNumber: false }), 'mice')
 })
