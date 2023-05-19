@@ -21,7 +21,7 @@ Node.js v16 or later.
 ## Installation
 
 ```shell
-npm install govuk-prototype-filters
+npm install @x-govuk/govuk-prototype-filters
 ```
 
 GOV.UK Prototype Filters are designed to work with the GOV.UK Prototype Kit.
