@@ -19,7 +19,9 @@ Output
 <p class="govuk-body">Visit <a class="govuk-link" href="https://www.gov.uk">GOV.UK</a>.</p>
 ```
 
-### Heading sizes
+### Options
+
+#### `headingsStartWith`
 
 By default, headings start using the class `govuk-heading-xl`.
 
@@ -45,12 +47,12 @@ Output
 <h4 class="govuk-heading-s">Heading level 4</h4>
 ```
 
-The [GOV.UK Design System recommends changing this](https://design-system.service.gov.uk/styles/typography/#headings) if a page feels unbalanced (heading classes don’t always need to correspond to the heading level). You can start headings using the smaller size by setting the `headingsStartWith` option.
+The [GOV.UK Design System recommends](https://design-system.service.gov.uk/styles/typography/#headings) changing this if a page feels unbalanced (heading classes don’t always need to correspond to the heading level). You can start headings using the smaller size by setting the `headingsStartWith` option.
 
 Input
 
 ```njk
-{{ headings | govukMarkdown({ headingsStartWith: "l" }) | safe }}
+{{ headings | govukMarkdown(headingsStartWith="l") | safe }}
 ```
 
 Output
@@ -60,6 +62,24 @@ Output
 <h2 class="govuk-heading-m">Heading level 2</h2>
 <h3 class="govuk-heading-s">Heading level 3</h3>
 <h4 class="govuk-heading-s">Heading level 4</h4>
+```
+
+#### `smartypants`
+
+Use the `smartypants` option to replace plain ASCII punctuation characters with smart typographic punctuation. Default is `true`.
+
+Input
+
+```njk
+{{ "Don't -- why not?" | govukMarkdown | safe }}
+{{ "Don't -- why not?" | govukMarkdown(smartypants=false) | safe }}
+```
+
+Output
+
+```html
+<p class="govuk-body">Don’t – why not?</h1>
+<p class="govuk-body">Don't -- why not?</h1>
 ```
 
 ## isString

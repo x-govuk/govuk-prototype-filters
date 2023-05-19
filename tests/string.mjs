@@ -9,7 +9,18 @@ import {
 } from '../lib/string.js'
 
 test('Converts a Markdown formatted string to HTML', t => {
-  t.is(govukMarkdown('**this** is _emphasis_'), '<p class="govuk-body"><strong>this</strong> is <em>emphasis</em></p>\n')
+  t.is(
+    govukMarkdown("# *Don't*"),
+    '<h1 class="govuk-heading-xl" id="dont"><em>Don’t</em></h1>'
+  )
+  t.is(govukMarkdown(
+    "# *Don't*", { smartypants: false }),
+    '<h1 class="govuk-heading-xl" id="don39t"><em>Don&#39;t</em></h1>'
+  )
+  t.is(
+    govukMarkdown("# *Don't*", { headingsStartWith: 'l' }),
+    '<h1 class="govuk-heading-l" id="dont"><em>Don’t</em></h1>'
+  )
 })
 
 test('Check if a value is classified as a `String`', t => {
