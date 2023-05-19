@@ -15,7 +15,7 @@ Node.js v18 or later.
 ## Installation
 
 ```shell
-npm install govuk-prototype-filters
+npm install @x-govuk/govuk-prototype-filters
 ```
 
 ## Usage with the GOV.UK Prototype Kit
@@ -26,10 +26,10 @@ If you are using v13 or later of the kit, the filters will be immediately availa
 
 ## Advanced usage
 
-`govuk-prototype-filters` exports an object containing all available filter functions. Using [Nunjucks’ `addFilter` method](https://mozilla.github.io/nunjucks/api.html#addfilter) you can add individual filters to your Nunjucks environment:
+`@x-govuk/govuk-prototype-filters` exports an object containing all available filter functions. Using [Nunjucks’ `addFilter` method](https://mozilla.github.io/nunjucks/api.html#addfilter) you can add individual filters to your Nunjucks environment:
 
 ```js
-const { slugify } = require('govuk-prototype-filters')
+const { slugify } = require('@x-govuk/govuk-prototype-filters')
 const nunjucks = require('nunjucks')
 
 const nunjucksEnv = nunjucks.configure(['./app/views'])
@@ -40,7 +40,7 @@ nunjucksEnv.addFilter("slugify", slugify)
 If you are using an earlier version of the GOV.UK Prototype Kit, you can import all the filters into your `/app/filters.js` file, like so:
 
 ```diff
-+ const prototypeFilters = require('govuk-prototype-filters');
++ const prototypeFilters = require('@x-govuk/govuk-prototype-filters');
 
   module.exports = function (env) {
     /**
