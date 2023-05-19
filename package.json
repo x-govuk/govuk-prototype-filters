@@ -36,7 +36,8 @@
     "lodash": "^4.17.21",
     "luxon": "^3.2.1",
     "marked": "^5.0.0",
-    "marked-smartypants": "^1.0.0"
+    "marked-smartypants": "^1.0.0",
+    "pluralize": "^8.0.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",
