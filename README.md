@@ -22,7 +22,7 @@ npm install govuk-prototype-filters
 
 GOV.UK Prototype Filters are designed to work with the GOV.UK Prototype Kit.
 
-If you are using v13 or later of the kit, the components will be immediately available once you have installed the package, and can be [managed alongside other plugins in your prototype](https://prototype-kit.service.gov.uk/docs/install-and-use-plugins).
+If you are using v13 or later of the kit, the filters will be immediately available once you have installed the package, and can be [managed alongside other plugins in your prototype](https://prototype-kit.service.gov.uk/docs/install-and-use-plugins).
 
 ## Advanced usage
 
