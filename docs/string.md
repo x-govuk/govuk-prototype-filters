@@ -64,24 +64,6 @@ Output
 <h4 class="govuk-heading-s">Heading level 4</h4>
 ```
 
-#### `smartypants`
-
-Use the `smartypants` option to replace plain ASCII punctuation characters with smart typographic punctuation. Default is `true`.
-
-Input
-
-```njk
-{{ "Don't -- why not?" | govukMarkdown | safe }}
-{{ "Don't -- why not?" | govukMarkdown(smartypants=false) | safe }}
-```
-
-Output
-
-```html
-<p class="govuk-body">Don’t – why not?</h1>
-<p class="govuk-body">Don't -- why not?</h1>
-```
-
 ## isString
 
 Checks if a value is classified as a [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) primitive or object.

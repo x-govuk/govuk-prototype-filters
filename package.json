@@ -32,10 +32,11 @@
     "access": "public"
   },
   "dependencies": {
-    "govuk-markdown": "^0.3.0",
+    "govuk-markdown": "^0.4.0",
     "lodash": "^4.17.21",
     "luxon": "^3.2.1",
-    "marked": "^4.2.12"
+    "marked": "^5.0.0",
+    "marked-smartypants": "^1.0.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",
