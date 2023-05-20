@@ -10,16 +10,12 @@ import {
 
 test('Converts a Markdown formatted string to HTML', t => {
   t.is(
-    govukMarkdown("# *Don't*"),
-    '<h1 class="govuk-heading-xl" id="dont"><em>Don’t</em></h1>'
-  )
-  t.is(govukMarkdown(
-    "# *Don't*", { smartypants: false }),
-    '<h1 class="govuk-heading-xl" id="don39t"><em>Don&#39;t</em></h1>'
+    govukMarkdown(`He said, -- "A 'simple' sentence..." --- unknown`),
+    '<p class="govuk-body">He said, &#8211; &#8220;A &#8216;simple&#8217; sentence&#8230;&#8221; &#8212; unknown</p>\n'
   )
   t.is(
-    govukMarkdown("# *Don't*", { headingsStartWith: 'l' }),
-    '<h1 class="govuk-heading-l" id="dont"><em>Don’t</em></h1>'
+    govukMarkdown("# Large heading", { headingsStartWith: 'l' }),
+    '<h1 class="govuk-heading-l" id="large-heading">Large heading</h1>'
   )
 })
 
