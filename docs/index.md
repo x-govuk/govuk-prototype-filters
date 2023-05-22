@@ -16,7 +16,7 @@ GOV.UK Prototype Filters is a collection of Nunjucks template filters to manipul
 
 ## Requirements
 
-Node.js v16 or later.
+Node.js v18 or later.
 
 ## Installation
 
