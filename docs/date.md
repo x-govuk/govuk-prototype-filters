@@ -1,99 +1,73 @@
 ---
+order: 3
 title: Date filters
-order: 2
 ---
+<!-- markdownlint-disable no-emphasis-as-header -->
+
+[[toc]]
 
 ## duration
 
-Returns a date a certain number of days from another date.
+Return a date a certain number of days from another date.
 
-Input
+**Input**
 
 ```njk
-{{ "2023-05-11" | duration(5, "days") }}
+{{ "2023-05-11" | duration(5) }}
 ```
 
-Output
+**Output**
 
 ```html
 2023-05-16T00:00:00.000+01:00
 ```
 
-Input
+A second parameter can be used to change the unit used to increment the date by. Accepts `"days"`, `"weeks"`, `"months"` or `"years"`. Default is `"days"`:
+
+**Input**
 
 ```njk
 {{ "2023-05-11" | duration(5, "weeks") }}
-```
-
-Output
-
-```html
-2023-06-15T00:00:00.000+01:00
-```
-
-Input
-
-```njk
 {{ "2023-05-11" | duration(5, "months") }}
-```
-
-Output
-
-```html
-2023-10-11T00:00:00.000+01:00
-```
-
-Input
-
-```njk
 {{ "2023-05-11" | duration(5, "years") }}
 ```
 
-Output
+**Output**
 
 ```html
+2023-06-15T00:00:00.000+01:00
+2023-10-11T00:00:00.000+01:00
 2028-05-11T00:00:00.000+01:00
 ```
 
 To return a date from today’s date, pass the special word `"today"` (or `"now"`):
 
-Input
+**Input**
 
 ```njk
-{{ "today" | duration(5, "days") }}
-```
-
-Output
-
-```html
-2023-05-11T09:00:59
-```
-
-If the second parameter is not passed, the unit will default to `"days"`.
-
-Input
-
-```njk
+{# Current datetime is 2023-05-06T09:00:59 #}
 {{ "today" | duration(5) }}
 ```
 
-Output
+**Output**
 
 ```html
 2023-05-11T09:00:59
 ```
 
+***
+
 ## govukDate
 
-Convert an ISO 8601 date time to a human readable date that follows [the GOV.UK style](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#dates).
+Convert an ISO 8601 date time into a human readable date that follows [the GOV.UK style](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#dates).
 
-Input
+**Input**
 
 ```njk
 {{ "2021-08-17" | govukDate }}
 ```
 
-Output
+**Output**
 
 ```html
 17 August 2021
@@ -101,13 +75,13 @@ Output
 
 You can also output a date with a truncated month:
 
-Input
+**Input**
 
 ```njk
 {{ "2021-08-17" | govukDate("truncate") }}
 ```
 
-Output
+**Output**
 
 ```html
 17 Aug 2021
@@ -115,23 +89,25 @@ Output
 
 To get the today’s date, pass the special word `"today"` (or `"now"`):
 
-Input
+**Input**
 
 ```njk
 This page was last updated on {{ "today" | govukDate }}.
 ```
 
-Output
+**Output**
 
 ```html
 This page was last updated on 22 October 2021.
 ```
 
+***
+
 ## govukTime
 
 Format an ISO 8601 date time or time to a human readable time that follows [the GOV.UK style](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#times).
 
-Input
+**Input**
 
 ```njk
 {{ "2021-08-17T00:00:31" | govukTime }}
@@ -139,7 +115,7 @@ Input
 {{ "2021-08-17T18:30:00" | govukTime }}
 ```
 
-Output
+**Output**
 
 ```html
 midnight
@@ -149,13 +125,13 @@ midday
 
 You can also pass in a time:
 
-Input
+**Input**
 
 ```njk
 {{ "08:15" | govukTime }}
 ```
 
-Output
+**Output**
 
 ```html
 8:15am
@@ -163,17 +139,19 @@ Output
 
 To get the current time, pass the special word `"now"` (or `"today"`):
 
-Input
+**Input**
 
 ```njk
 You submitted your application at {{ "now" | govukTime }}.
 ```
 
-Output
+**Output**
 
 ```html
 You submitted your application at 4:32pm.
 ```
+
+***
 
 ## isoDateFromDateInput
 
@@ -181,7 +159,7 @@ The `govukDateInput` component stores separate values for `day`, `month` and `ye
 
 When prefixed using a `namePrefix`, these values are stored with names prefixed with that value. This filter takes these prefixed values and converts them into an ISO 8601 formatted date.
 
-Input
+**Input**
 
 ```js
 const data = {
@@ -195,7 +173,7 @@ const data = {
 {{ data | isoDateFromDateInput("dob") }}
 ```
 
-Output
+**Output**
 
 ```html
 2012-02-01
@@ -203,15 +181,21 @@ Output
 
 Combine this filter with `govukDate` to output a human readable date:
 
+**Input**
+
 ```njk
 {{ data | isoDateFromDateInput("dob") | govukDate }}
 ```
+
+**Output**
 
 ```html
 1 February 2012
 ```
 
-It’s possible to configure `govukDateInput` so that only certain parts of a date are asked for, such as a month and year. You can also omit the `namePrefix` option and use individual `name` options for each value if you want to save them in a nested object. This filter also covers that use case:
+It’s possible to configure `govukDateInput` so that only certain parts of a date are asked for, such as a month and year. You can also omit the `namePrefix` option and use individual `name` options for each value if you want to save them in a nested object. This filter covers that use case:
+
+**Input**
 
 ```js
 const data = {
@@ -226,23 +210,25 @@ const data = {
 {{ data.passport | isoDateFromDateInput }}
 ```
 
-Output
+**Output**
 
 ```html
 2001-05
 ```
 
+***
+
 ## monthName
 
-Convert a number (between 1 and 12) to the name of the corresponding month.
+Convert a number (between 1 and 12) into the name of the corresponding month.
 
-Input
+**Input**
 
 ```njk
 {{ 3 | monthName }}
 ```
 
-Output
+**Output**
 
 ```html
 March
@@ -250,13 +236,13 @@ March
 
 You can also output a truncated month name:
 
-Input
+**Input**
 
 ```njk
 {{ 3 | monthName("truncate") }}
 ```
 
-Output
+**Output**
 
 ```html
 Mar

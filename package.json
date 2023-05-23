@@ -1,7 +1,7 @@
 {
   "name": "@x-govuk/govuk-prototype-filters",
   "version": "0.1.0",
-  "description": "Nunjucks filters for use with the GOV.UK Prototype Kit",
+  "description": "Prototype with data using helpful template filters",
   "keywords": [
     "prototyping",
     "government",
@@ -19,7 +19,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/x-govuk/govuk-prototype-filters.git"
+    "url": "https://github.com/x-govuk/govuk-prototype-filters.git"
   },
   "scripts": {
     "build": "eleventy --quiet",

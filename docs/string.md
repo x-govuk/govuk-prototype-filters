@@ -1,31 +1,32 @@
 ---
+order: 6
 title: String filters
-order: 5
 ---
+<!-- markdownlint-disable no-emphasis-as-header -->
+
+[[toc]]
 
 ## govukMarkdown
 
-Convert a Markdown formatted string to HTML decorated with [typography classes from the GOV.UK Design System](https://design-system.service.gov.uk/styles/typography/).
+Convert a Markdown formatted string into HTML decorated with [typography classes from the GOV.UK Design System](https://design-system.service.gov.uk/styles/typography/).
 
-Input
+**Input**
 
 ```njk
 {{ "Visit [GOV.UK](https://gov.uk)." | govukMarkdown | safe }}
 ```
 
-Output
+**Output**
 
 ```html
 <p class="govuk-body">Visit <a class="govuk-link" href="https://www.gov.uk">GOV.UK</a>.</p>
 ```
 
-### Options
-
-#### `headingsStartWith`
+### `headingsStartWith`
 
 By default, headings start using the class `govuk-heading-xl`.
 
-Input
+**Input**
 
 ```njk
 {% set headings %}
@@ -38,7 +39,7 @@ Input
 {{ headings | govukMarkdown | safe }}
 ```
 
-Output
+**Output**
 
 ```html
 <h1 class="govuk-heading-xl">Heading level 1</h1>
@@ -47,15 +48,17 @@ Output
 <h4 class="govuk-heading-s">Heading level 4</h4>
 ```
 
-The [GOV.UK Design System recommends](https://design-system.service.gov.uk/styles/typography/#headings) changing this if a page feels unbalanced (heading classes don’t always need to correspond to the heading level). You can start headings using the smaller size by setting the `headingsStartWith` option.
+The [GOV.UK Design System recommends](https://design-system.service.gov.uk/styles/typography/#headings) changing this if a page feels unbalanced (heading classes don’t always need to correspond to the heading level).
 
-Input
+Start headings using the smaller size by setting the `headingsStartWith` option:
+
+**Input**
 
 ```njk
 {{ headings | govukMarkdown(headingsStartWith="l") | safe }}
 ```
 
-Output
+**Output**
 
 ```html
 <h1 class="govuk-heading-l">Heading level 1</h1>
@@ -64,67 +67,79 @@ Output
 <h4 class="govuk-heading-s">Heading level 4</h4>
 ```
 
+***
+
 ## isString
 
-Checks if a value is classified as a [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) primitive or object.
+Check a value is classified as a [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) primitive or object.
 
-Input
+**Input**
 
 ```njk
 {{ "Number 10" | isString }}
 {{ 10 | isString }}
 ```
 
-Output
+**Output**
 
 ```html
 true
 false
 ```
 
+***
+
 ## noOrphans
 
-Add a non-breaking space between the last two words of a string. This prevents an orphaned word appearing by itself at the end of a paragraph. This can be useful for improving the appearance of headings and titles.
+Add a non-breaking space between the last two words of a string.
 
-Input
+This prevents an orphaned word appearing by itself at the end of a paragraph. This can be useful for improving the appearance of headings and titles.
+
+**Input**
 
 ```njk
 {{ "Department for Business, Energy & Industrial Strategy" | noOrphans | safe }}
 ```
 
-Output
+**Output**
 
 ```html
 Department for Business, Energy & Industrial&amp;nbsp;Strategy
 ```
 
+***
+
 ## slugify
 
-Convert a string to kebab-case. This can be useful to slugify titles for use in URLs or fragment identifiers.
+Convert a string into kebab-case.
 
-Input
+This can be useful to slugify titles for use in URLs or fragment identifiers.
+
+**Input**
 
 ```njk
 {{ "Department for Education" | slugify }}
 ```
 
-Output
+**Output**
 
 ```html
 department-for-education
 ```
 
+***
+
 ## startsWith
 
-Checks if a string starts with a value.
+Check a string starts with a value.
 
-Input
+**Input**
 
 ```njk
 {{ "Department for Transport" | startsWith("Department") }}
 ```
 
-Output
+**Output**
 
 ```html
 true

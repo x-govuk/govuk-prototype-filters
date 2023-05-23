@@ -1,19 +1,22 @@
 ---
+order: 2
 title: Array filters
-order: 1
 ---
+<!-- markdownlint-disable no-emphasis-as-header -->
+
+[[toc]]
 
 ## formatList
 
-Convert array to a list formatted as a sentence.
+Convert an array into a string formatted as a sentence.
 
-Input
+**Input**
 
 ```njk
 {{ ["England", "Scotland", "Wales"] | formatList }}
 ```
 
-Output
+**Output**
 
 ```html
 England, Scotland and Wales
@@ -21,41 +24,45 @@ England, Scotland and Wales
 
 To format the list using a disjunction:
 
-Input
+**Input**
 
 ```njk
 {{ ["England", "Scotland", "Wales"] | formatList("disjunction") }}
 ```
 
-Output
+**Output**
 
 ```html
 England, Scotland or Wales
 ```
 
+***
+
 ## isArray
 
-Checks if a value is classified as an [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) object.
+Check a value is classified as an [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) object.
 
-Input
+**Input**
 
 ```njk
 {{ ["england", "scotland", "wales"] | isArray }}
 {{ "great britain" | isArray }}
 ```
 
-Output
+**Output**
 
 ```html
 true
 false
 ```
 
+***
+
 ## rejectFromArray
 
 Reject items in an array that have a key with a given value.
 
-Input
+**Input**
 
 ```njk
 {{ [{
@@ -67,7 +74,7 @@ Input
 }] | rejectFromArray("role", "admin") | dump }}
 ```
 
-Output
+**Output**
 
 ```html
 [{
@@ -76,11 +83,13 @@ Output
 }]
 ```
 
+***
+
 ## selectFromArray
 
 Select items in an array that have a key with a given value.
 
-Input
+**Input**
 
 ```njk
 {{ [{
@@ -92,7 +101,7 @@ Input
 }] | selectFromArray("role", "admin") | dump }}
 ```
 
-Output
+**Output**
 
 ```html
 [{
@@ -101,18 +110,19 @@ Output
 }]
 ```
 
+***
 
 ## uniqueFromArray
 
-Returns an array that contains only unique items.
+Return unique items from an array.
 
-Input
+**Input**
 
 ```njk
 {{ ['Orange', 'Banana', 'Apple', 'Orange'] | uniqueFromArray }}
 ```
 
-Output
+**Output**
 
 ```html
 [Orange, Banana, Apple]

@@ -14,7 +14,7 @@ test.before(t => {
   ]
 })
 
-test('Converts array to a list formatted as a sentence', t => {
+test('Converts an array to a string formatted as a sentence', t => {
   t.is(
     formatList(['England', 'Scotland', 'Wales']),
     'England, Scotland and Wales'
@@ -25,7 +25,7 @@ test('Converts array to a list formatted as a sentence', t => {
   )
 })
 
-test('Check if a value is the language type of `Object`', t => {
+test('Checks a value is the language type of `Object`', t => {
   t.true(isArray(['england', 'scotland', 'wales']))
   t.false(isArray('great britain'))
 })
@@ -44,7 +44,7 @@ test('Selects items in an array that have a key with a given value', t => {
   }])
 })
 
-test('Returns an array that contains only unique items', t => {
+test('Returns an array containing unique items', t => {
   t.deepEqual(
     uniqueFromArray(['Orange', 'Banana', 'Apple', 'Orange']),
     ['Orange', 'Banana', 'Apple']

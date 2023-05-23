@@ -1,12 +1,6 @@
 # GOV.UK Prototype Filters · [![test](https://github.com/x-govuk/govuk-prototype-filters/actions/workflows/test.yml/badge.svg)](https://github.com/x-govuk/govuk-prototype-filters/actions/workflows/test.yml)
 
-A collection of Nunjucks template filters to manipulate and transform:
-
-* [Arrays](https://x-govuk.github.io/govuk-prototype-filters/array/)
-* [Dates](https://x-govuk.github.io/govuk-prototype-filters/date/)
-* [Numbers](https://x-govuk.github.io/govuk-prototype-filters/number/)
-* [Objects](https://x-govuk.github.io/govuk-prototype-filters/object/)
-* [Strings](https://x-govuk.github.io/govuk-prototype-filters/string/)
+Use this GOV.UK Prototype Kit plugin to add helpful filters to Nunjucks templates. Rapidly modify and transform data while ensuring it follows the GOV.UK style guide.
 
 ## Requirements
 
@@ -18,45 +12,22 @@ Node.js v18 or later.
 npm install @x-govuk/govuk-prototype-filters
 ```
 
-## Usage with the GOV.UK Prototype Kit
+## Usage
 
-GOV.UK Prototype Filters are designed to work with the GOV.UK Prototype Kit.
+If you are using version 13 or later of the GOV.UK Prototype Kit, the filters will be immediately available for use in Nunjucks templates.
 
-If you are using v13 or later of the kit, the filters will be immediately available once you have installed the package, and can be [managed alongside other plugins in your prototype](https://prototype-kit.service.gov.uk/docs/install-and-use-plugins).
+Learn more about how to [get started](https://x-govuk.github.io/govuk-prototype-filters/get-started/).
 
-## Advanced usage
+## Contributing
 
-`@x-govuk/govuk-prototype-filters` exports an object containing all available filter functions. Using [Nunjucks’ `addFilter` method](https://mozilla.github.io/nunjucks/api.html#addfilter) you can add individual filters to your Nunjucks environment:
+Bug reports and feature requests are welcome. Please raise an issue or submit a pull request.
 
-```js
-const { slugify } = require('@x-govuk/govuk-prototype-filters')
-const nunjucks = require('nunjucks')
+We use [StandardJS](https://standardjs.com) to ensure code follows [the GDS way](https://gds-way.cloudapps.digital/manuals/programming-languages/js.html). Use `npm run lint` to check your code before submitting a pull request.
 
-const nunjucksEnv = nunjucks.configure(['./app/views'])
+## Testing
 
-nunjucksEnv.addFilter("slugify", slugify)
+```shell
+npm test
 ```
 
-If you are using an earlier version of the GOV.UK Prototype Kit, you can import all the filters into your `/app/filters.js` file, like so:
-
-```diff
-+ const prototypeFilters = require('@x-govuk/govuk-prototype-filters');
-
-  module.exports = function (env) {
-    /**
-     * Instantiate object used to store the methods registered as a
-     * 'filter' (of the same name) within nunjucks. You can override
-     * gov.uk core filters by creating filter methods of the same name.
-     * @type {Object}
-     */
--   var filters = {}
-+   var filters = prototypeFilters
-
-    // Existing filter
-    filters.sayHi = function(name) {
-        return 'Hi ' + name + '!'
-    }
-
-    return filters
-  }
-```
+Use `npm run coverage` to check code coverage.
