@@ -9,7 +9,7 @@ import {
 
 const now = Date.now()
 
-test('Return a date a certain number of days from another date', t => {
+test('Returns a date a certain number of days from another date', t => {
   const dt = new Date()
   dt.setDate(dt.getDate() + 5)
   t.is((duration('today', 5)).substring(0, 10), dt.toISOString().substring(0, 10))

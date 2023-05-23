@@ -18,7 +18,7 @@ test('Converts a Markdown formatted string to HTML', t => {
   )
 })
 
-test('Check if a value is classified as a `String`', t => {
+test('Checks a value is classified as a `String`', t => {
   t.true(isString('Number 10'))
   t.false(isString(10))
 })
@@ -32,6 +32,6 @@ test('Converts a string to kebab-case', t => {
   t.is(slugify('Department for Education'), 'department-for-education')
 })
 
-test('Checks if a string starts with a value', t => {
+test('Checks a string starts with a value', t => {
   t.true(startsWith('Department of Transport', 'Department'))
 })

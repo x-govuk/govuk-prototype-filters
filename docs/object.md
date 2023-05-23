@@ -1,13 +1,16 @@
 ---
+order: 5
 title: Object filters
-order: 4
 ---
+<!-- markdownlint-disable no-emphasis-as-header -->
+
+[[toc]]
 
 ## isObject
 
-Checks if a value is the language type of [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object).
+Check a value is the language type of [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object).
 
-Input
+**Input**
 
 ```njk
 {{ { country: "england" } | isObject }}
@@ -15,7 +18,7 @@ Input
 {{ "great britain" | isObject }}
 ```
 
-Output
+**Output**
 
 ```html
 true
@@ -23,11 +26,13 @@ true
 false
 ```
 
+***
+
 ## objectToArray
 
-Transforms an object to an array, using each object’s key as the value for `id`.
+Convert an object into an array, using each object’s key as the value for `id`.
 
-Input
+**Input**
 
 ```njk
 {{ {
@@ -37,7 +42,7 @@ Input
 } | objectToArray | dump }}
 ```
 
-Output
+**Output**
 
 ```html
 [

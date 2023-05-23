@@ -1,0 +1,35 @@
+---
+homepage: true
+layout: product
+includeInBreadcrumbs: true
+title: Prototype with data using helpful template filters
+description: Use this GOV.UK Prototype Kit plugin to add helpful filters to Nunjucks templates. Rapidly modify and transform data while ensuring it follows the GOV.UK style guide.
+image:
+  src: /assets/homepage-illustration.svg
+  alt: Illustration of an interface with checkboxes and radio buttons being generated from code, floating above a laptop.
+startButton:
+  href: /get-started
+content: |
+  Filters are a feature of the Nunjucks templating language that allow you to modify variables. Separated by a pipe symbol (`|`), they can be chained together, with the output of one filter passed on to the next.
+
+  For example, `{{ "<p>GOV.UK</p>" | striptags | lower }}` will remove the HTML tags, lower-case the remaining string and output `gov.uk`.
+
+  GOV.UK Prototype Filters provides an additional collection of filters which can be used to transform:
+
+  * [Arrays](array)
+  * [Dates](date)
+  * [Numbers](number)
+  * [Objects](object)
+  * [Strings](string)
+---
+<div class="govuk-grid-row">
+  <section class="govuk-grid-column-two-thirds-from-desktop">
+    {{ content | markdown }}
+  </section>
+  <section class="govuk-grid-column-full">
+    <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl govuk-!-margin-top-0">
+    <h2 class="govuk-heading-m govuk-!-font-size-27">Contribute</h2>
+    <p class="govuk-body">The project repository is public and we welcome contributions from anyone.</p>
+    <p class="govuk-body"><a class="govuk-link govuk-!-font-weight-bold" href="{{ pkg.repository.url | replace(".git", "") }}">View this project on GitHub</a></p>
+  </section>
+</div>

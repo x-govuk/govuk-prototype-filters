@@ -21,7 +21,7 @@ test('Converts a number into a string formatted as currency', t => {
   }), '75.00 US dollars')
 })
 
-test('Checks if a value is classified as a `Number` primitive or object', t => {
+test('Checks a value is classified as a `Number` primitive or object', t => {
   t.true(isNumber(1801))
   t.false(isNumber('1801'))
 })

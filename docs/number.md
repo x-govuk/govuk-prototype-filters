@@ -1,13 +1,16 @@
 ---
+order: 4
 title: Number filters
-order: 3
 ---
+<!-- markdownlint-disable no-emphasis-as-header -->
+
+[[toc]]
 
 ## currency
 
 Convert a number into a string formatted as currency.
 
-Input
+**Input**
 
 ```njk
 {{ 133.66667 | currency }}
@@ -15,7 +18,7 @@ Input
 {{ 75 | currency }}
 ```
 
-Output
+**Output**
 
 ```html
 £133.67
@@ -23,9 +26,7 @@ Output
 £75.00
 ```
 
-### Options
-
-#### `display`
+### `display`
 
 Use the `display` option to change how the currency is displayed. Accepts the following values:
 
@@ -36,7 +37,7 @@ Use the `display` option to change how the currency is displayed. Accepts the fo
 
 Default is `"symbol"`.
 
-Input
+**Input**
 
 ```njk
 {{ 75 | currency(display="narrowSymbol", unit="USD") }}
@@ -45,7 +46,7 @@ Input
 {{ 75 | currency(display="name", unit="USD") }}
 ```
 
-Output
+**Output**
 
 ```html
 $75.00
@@ -60,13 +61,13 @@ Use the `trailingZeros` option to show leading zeros for whole number values. De
 
 > Set this option to `false` to display pounds and pence in a format that follows [the GOV.UK style for money](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#money).
 
-Input
+**Input**
 
 ```njk
 {{ 75.0015 | currency(trailingZeros=false) }}
 ```
 
-Output
+**Output**
 
 ```html
 £75
@@ -76,53 +77,59 @@ Output
 
 Use the `unit` option to change the unit of currency. Accepts an [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217). Default is `"GBP"`.
 
-Input
+**Input**
 
 ```njk
 {{ 75 | currency(unit="USD") }}
 ```
 
-Output
+**Output**
 
 ```html
 US$75.00
 ```
 
+***
+
 ## isNumber
 
-Checks if a value is classified as a [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) primitive or object.
+Check a value is classified as a [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) primitive or object.
 
-Input
+**Input**
 
 ```njk
 {{ 1801 | isNumber }}
 {{ "1801" | isNumber }}
 ```
 
-Output
+**Output**
 
 ```html
 true
 false
 ```
 
+***
+
 ## ordinal
 
 Convert a number into an ordinal numeral that follows [the GOV.UK style](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#ordinal-numbers).
 
-Input
+**Input**
 
 ```njk
 {{ 4 | ordinal }}
 {{ 22 | ordinal }}
 ```
 
-Output
+**Output**
 
 ```html
 fourth
 22nd
 ```
+
+***
 
 ## plural
 
@@ -130,32 +137,32 @@ Get the plural word form for an item for a given number.
 
 > This filter currently only works with English words.
 
+**Input**
+
 ```njk
 {{ 1 | plural("mouse") }}
 {{ 2 | plural("mouse") }}
 ```
 
-Output
+**Output**
 
 ```html
 1 mouse
 2 mice
 ```
 
-### Options
-
-#### `showNumber`
+### `showNumber`
 
 Use the `showNumber` option to show number alongside the pluralised word. Default is `true`.
 
-Input
+**Input**
 
 ```njk
 {{ 1 | plural("mouse", showNumber=false) }}
 {{ 2 | plural("mouse", showNumber=false) }}
 ```
 
-Output
+**Output**
 
 ```html
 mouse

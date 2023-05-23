@@ -11,7 +11,7 @@ module.exports = function (eleventyConfig) {
       shortcut: 'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-favicon.ico',
       touch: 'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-apple-touch-icon.png'
     },
-    opengraphImageUrl: 'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-opengraph-image.png',
+    opengraphImageUrl: 'https://x-govuk.github.io/govuk-prototype-filters/assets/opengraph-image.png',
     homeKey: 'GOV.UK Prototype Filters',
     parentSite: {
       url: 'https://x-govuk.github.io/#shared-projects',
@@ -23,7 +23,11 @@ module.exports = function (eleventyConfig) {
     header: {
       organisationLogo: 'x-govuk',
       organisationName: 'X-GOVUK',
-      productName: 'Prototype Filters'
+      productName: 'Prototype Filters',
+      search: {
+        indexPath: '/search.json',
+        sitemapPath: '/sitemap'
+      }
     },
     footer: {
       contentLicence: {
@@ -31,16 +35,21 @@ module.exports = function (eleventyConfig) {
       },
       copyright: {
         text: '© X-GOVUK'
+      },
+      meta: {
+        items: [{
+          href: 'https://mozilla.github.io/nunjucks/templating.html#builtin-filters',
+          text: 'Builtin Nunjucks filters (opens in a new tab)',
+          attributes: {
+            target: '_blank'
+          }
+        }]
       }
     }
   })
 
-  // Transforms
-  eleventyConfig.addTransform('remove-h1', (content, outputPath) => {
-    // Remove first `h1` as it repeats what’s already shown in page title
-    content = content.replace(/<h1\s*.*tabindex="-1"\s*.*>\s*.*<\/h1>/, '')
-    return content
-  })
+  // Passthrough
+  eleventyConfig.addPassthroughCopy('./docs/assets')
 
   // Config
   return {
