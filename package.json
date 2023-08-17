@@ -25,7 +25,7 @@
     "build": "eleventy --quiet",
     "start": "eleventy --serve --quiet",
     "lint": "eslint '**/*.js'",
-    "test": "ava",
+    "test": "ava && npx govuk-prototype-kit@latest validate-plugin",
     "coverage": "c8 ava"
   },
   "publishConfig": {
