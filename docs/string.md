@@ -98,7 +98,7 @@ This prevents an orphaned word appearing by itself at the end of a paragraph. Th
 **Input**
 
 ```njk
-{{ "Department for Business, Energy & Industrial Strategy" | noOrphans | safe }}
+{{ "Department for Business, Energy & Industrial Strategy" | noOrphans }}
 ```
 
 **Output**
