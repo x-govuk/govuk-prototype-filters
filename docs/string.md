@@ -13,7 +13,7 @@ Convert a Markdown formatted string into HTML decorated with [typography classes
 **Input**
 
 ```njk
-{{ "Visit [GOV.UK](https://gov.uk)." | govukMarkdown | safe }}
+{{ "Visit [GOV.UK](https://gov.uk)." | govukMarkdown }}
 ```
 
 **Output**
@@ -36,7 +36,7 @@ By default, headings start using the class `govuk-heading-xl`.
 #### Heading level 4
 {% endset %}
 
-{{ headings | govukMarkdown | safe }}
+{{ headings | govukMarkdown }}
 ```
 
 **Output**
@@ -55,7 +55,7 @@ Start headings using the smaller size by setting the `headingsStartWith` option:
 **Input**
 
 ```njk
-{{ headings | govukMarkdown(headingsStartWith="l") | safe }}
+{{ headings | govukMarkdown(headingsStartWith="l") }}
 ```
 
 **Output**
