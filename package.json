@@ -35,7 +35,7 @@
     "govuk-markdown": "^0.4.0",
     "lodash": "^4.17.21",
     "luxon": "^3.2.1",
-    "marked": "^5.0.0",
+    "marked": "^7.0.0",
     "marked-smartypants": "^1.0.0",
     "pluralize": "^8.0.0"
   },
@@ -43,10 +43,10 @@
     "@11ty/eleventy": "^2.0.0",
     "@x-govuk/govuk-eleventy-plugin": "^5.0.0",
     "ava": "^5.1.1",
-    "c8": "^7.12.0",
+    "c8": "^8.0.0",
     "eslint": "^8.39.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-jsdoc": "^44.2.0"
+    "eslint-plugin-jsdoc": "^46.0.0"
   },
   "peerDependencies": {
     "govuk-prototype-kit": "^13.0.0"
