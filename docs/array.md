@@ -38,6 +38,26 @@ England, Scotland or Wales
 
 ***
 
+## includes
+
+Tests whether an array includes an item given, and returns true or false.
+
+**Input**
+
+```njk
+{{ ['Orange', 'Banana', 'Apple'] | includes('Orange') }}
+{{ ['Orange', 'Banana', 'Apple'] | includes('Pear') }}
+```
+
+**Output**
+
+```html
+true
+false
+```
+
+***
+
 ## isArray
 
 Check a value is classified as an [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) object.

@@ -7,6 +7,10 @@ import {
   startsWith
 } from '../lib/string.js'
 
+import {
+  arrayOrStringIncludes
+} from '../lib/array.js'
+
 test('Converts a Markdown formatted string to HTML', t => {
   t.is(
     govukMarkdown(`He said, -- "A 'simple' sentence..." --- unknown`),
@@ -34,4 +38,16 @@ test('Converts a string to kebab-case', t => {
 
 test('Checks a string starts with a value', t => {
   t.true(startsWith('Department of Transport', 'Department'))
+})
+
+test('Returns true if a string includes string given', t => {
+  t.true(
+    arrayOrStringIncludes('Oranges are great', 'Orange')
+  )
+})
+
+test('Returns false if a string does not include string given', t => {
+  t.false(
+    arrayOrStringIncludes('Oranges are great', 'Apple')
+  )
 })

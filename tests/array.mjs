@@ -1,5 +1,6 @@
 import test from 'ava'
 import {
+  arrayOrStringIncludes,
   formatList,
   isArray,
   rejectFromArray,
@@ -12,6 +13,18 @@ test.before(t => {
     { name: 'Sally Smith', role: 'admin' },
     { name: 'David Jones', role: 'user' }
   ]
+})
+
+test('Returns true if an array includes item given', t => {
+  t.true(
+    arrayOrStringIncludes(['Orange', 'Banana', 'Apple'], 'Orange')
+  )
+})
+
+test('Returns false if an array does not include item given', t => {
+  t.false(
+    arrayOrStringIncludes(['Orange', 'Banana', 'Apple'], 'Pear')
+  )
 })
 
 test('Converts an array to a string formatted as a sentence', t => {

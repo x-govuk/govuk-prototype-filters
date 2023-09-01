@@ -69,6 +69,26 @@ Start headings using the smaller size by setting the `headingsStartWith` option:
 
 ***
 
+## includes
+
+Tests whether a string includes the string given, and returns true or false.
+
+**Input**
+
+```njk
+{{ "Department for Transport" | includes(" for ") }}
+{{ "Department of Health & Social Care" | includes(" for ") }}
+```
+
+**Output**
+
+```html
+true
+false
+```
+
+***
+
 ## isString
 
 Check a value is classified as a [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) primitive or object.
