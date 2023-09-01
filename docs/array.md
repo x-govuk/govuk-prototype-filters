@@ -127,3 +127,21 @@ Return unique items from an array.
 ```html
 [Orange, Banana, Apple]
 ```
+
+## includes
+
+Tests whether an array includes an item given, and returns true or false.
+
+**Input**
+
+```njk
+{{ ['Orange', 'Banana', 'Apple'] | includes('Orange') }}
+{{ ['Orange', 'Banana', 'Apple'] | includes('Pear') }}
+```
+
+**Output**
+
+```html
+true
+false
+```

@@ -4,7 +4,8 @@ import {
   isArray,
   rejectFromArray,
   selectFromArray,
-  uniqueFromArray
+  uniqueFromArray,
+  arrayOrStringIncludes
 } from '../lib/array.js'
 
 test.before(t => {
@@ -48,5 +49,17 @@ test('Returns an array containing unique items', t => {
   t.deepEqual(
     uniqueFromArray(['Orange', 'Banana', 'Apple', 'Orange']),
     ['Orange', 'Banana', 'Apple']
+  )
+})
+
+test('Returns true if an array includes item given', t => {
+  t.true(
+    arrayOrStringIncludes(['Orange', 'Banana', 'Apple'], 'Orange')
+  )
+})
+
+test('Returns false if an array does not include item given', t => {
+  t.false(
+    arrayOrStringIncludes(['Orange', 'Banana', 'Apple'], 'Pear')
   )
 })

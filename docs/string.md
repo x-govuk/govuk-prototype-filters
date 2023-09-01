@@ -144,3 +144,21 @@ Check a string starts with a value.
 ```html
 true
 ```
+
+## includes
+
+Tests whether a string includes the string given, and returns true or false.
+
+**Input**
+
+```njk
+{{ "Department for Transport" | includes(" for ") }}
+{{ "Department of Health & Social Care" | includes(" for ") }}
+```
+
+**Output**
+
+```html
+true
+false
+```
