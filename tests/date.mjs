@@ -1,5 +1,6 @@
 import test from 'ava'
 import {
+  daysAgo,
   duration,
   govukDate,
   govukTime,
@@ -8,6 +9,22 @@ import {
 } from '../lib/date.js'
 
 const now = Date.now()
+
+test('Returns correct number of days ago', t => {
+  const dateNow = new Date()
+  const yesterday = new Date(dateNow)
+  yesterday.setDate(yesterday.getDate() - 1)
+  const tomorrow = new Date(dateNow)
+  tomorrow.setDate(tomorrow.getDate() + 1)
+
+  t.is(daysAgo(dateNow.toISOString()), 0)
+  t.is(daysAgo(yesterday.toISOString()), 1)
+  t.is(daysAgo(tomorrow.toISOString()), -1)
+})
+
+test('Returns error if date can’t be parsed', t => {
+  t.is(daysAgo('2021-23-45'), 'Invalid DateTime')
+})
 
 test('Returns a date a certain number of days from another date', t => {
   const dt = new Date()

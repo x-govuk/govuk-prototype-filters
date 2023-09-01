@@ -6,6 +6,59 @@ title: Date filters
 
 [[toc]]
 
+## daysAgo
+
+Return how many days ago a date was.
+
+If the date is today, the number 0 is returned. If the date is in the future, a negative number of days will be returned.
+
+**Input**
+
+```njk
+{# Current datetime is 2023-05-06T09:00:59 #}
+{{ "2023-05-04" | daysAgo }}
+```
+
+**Output**
+
+```html
+2
+```
+
+This can be useful within conditions to determine whether a date is in the past or the future:
+
+```njk
+{% set leftDaysAgo = data | isoDateFromDateInput("leavingDate") | daysAgo %}
+
+{% if leftDaysAgo > 0 %}
+  They left the organisation on
+  {{ data | isoDateFromDateInput("leavingDate") | govukDate }}.
+{% elif leftDaysAgo == 0 %}
+  They are leaving the organisation today.
+{% else %}
+  They will be leaving the organisation on
+  {{ data | isoDateFromDateInput("leavingDate") | govukDate }}.
+{% end %}
+```
+
+It can also be combined with [`plural`](/number#plural) to show the number of days ago:
+
+
+**Input**
+
+```njk
+Case opened {{ data | isoDateFromDateInput("opened") | daysAgo | plural("day") }} ago.
+```
+
+**Output**
+
+```html
+Case opened 1 day ago
+Case opened 2 days ago
+```
+
+***
+
 ## duration
 
 Return a date a certain number of days from another date.
