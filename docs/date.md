@@ -171,8 +171,8 @@ Format an ISO 8601 date time or time to a human readable time that follows [the 
 **Output**
 
 ```html
-midnight
-midday
+12am (midnight)
+12pm (midday)
 6:30pm
 ```
 
