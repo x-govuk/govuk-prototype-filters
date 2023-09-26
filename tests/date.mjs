@@ -60,8 +60,8 @@ test('Returns error converting an ISO 8601 date time to a date using the GOV.UK 
 
 test('Converts an ISO 8601 date time to a time using the GOV.UK style', t => {
   t.is(govukTime('2021-08-17T18:30:00'), '6:30pm')
-  t.is(govukTime('2021-08-17T00:00:59'), 'midnight')
-  t.is(govukTime('2021-08-17T12:00:59'), 'midday')
+  t.is(govukTime('2021-08-17T00:00:59'), '12am (midnight)')
+  t.is(govukTime('2021-08-17T12:00:59'), '12pm (midday)')
   t.is(govukTime('18:30'), '6:30pm')
   t.truthy(govukTime('now'))
 })
