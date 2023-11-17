@@ -26,7 +26,8 @@
     "start": "eleventy --serve --quiet",
     "lint": "eslint '**/*.js'",
     "test": "ava && npx govuk-prototype-kit@latest validate-plugin",
-    "coverage": "c8 ava"
+    "coverage": "c8 ava",
+    "release": "np"
   },
   "publishConfig": {
     "access": "public"
@@ -46,7 +47,8 @@
     "c8": "^8.0.0",
     "eslint": "^8.39.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-jsdoc": "^46.0.0"
+    "eslint-plugin-jsdoc": "^46.0.0",
+    "np": "^8.0.4"
   },
   "peerDependencies": {
     "govuk-prototype-kit": "^13.0.0"
