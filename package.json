@@ -25,8 +25,8 @@
     "build": "eleventy --quiet",
     "start": "eleventy --serve --quiet",
     "lint": "eslint '**/*.js'",
-    "test": "ava && npx govuk-prototype-kit@latest validate-plugin",
-    "coverage": "c8 ava",
+    "test": "node --test && npx govuk-prototype-kit@latest validate-plugin",
+    "coverage": "node --test --experimental-test-coverage",
     "release": "np"
   },
   "publishConfig": {
@@ -43,8 +43,6 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",
     "@x-govuk/govuk-eleventy-plugin": "^5.0.6",
-    "ava": "^5.1.1",
-    "c8": "^8.0.0",
     "eslint": "^8.39.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-jsdoc": "^46.0.0",
@@ -55,12 +53,6 @@
   },
   "engines": {
     "node": "^18 || ^20"
-  },
-  "c8": {
-    "reporter": [
-      "text",
-      "lcovonly"
-    ]
   },
   "eslintConfig": {
     "env": {
