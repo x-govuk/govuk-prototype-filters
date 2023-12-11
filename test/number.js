@@ -1,11 +1,11 @@
-import { strict as assert } from 'node:assert'
-import { describe, it } from 'node:test'
-import {
+const assert = require('node:assert/strict')
+const { describe, it } = require('node:test')
+const {
   currency,
   isNumber,
   ordinal,
   plural
-} from '../lib/number.js'
+} = require('../lib/number.js')
 
 describe('Number filters', async () => {
   it('Converts number into a string formatted as currency', () => {
@@ -16,7 +16,7 @@ describe('Number filters', async () => {
     assert.equal(currency(75, { display: 'symbol', unit: 'USD' }), 'US$75.00')
     assert.equal(currency(75, { display: 'code', unit: 'USD' }), 'USD\u00A075.00')
     assert.equal(currency(75.0015, { trailingZeros: false }), '£75')
-    assert.equal(currency(75, { display: 'name', trailingZeros: false, unit: 'USD'}), '75.00 US dollars')
+    assert.equal(currency(75, { display: 'name', trailingZeros: false, unit: 'USD' }), '75.00 US dollars')
   })
 
   it('Checks value is classified as a `Number` primitive or object', () => {

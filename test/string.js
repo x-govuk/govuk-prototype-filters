@@ -1,25 +1,25 @@
-import { strict as assert } from 'node:assert'
-import { describe, it } from 'node:test'
-import {
+const assert = require('node:assert/strict')
+const { describe, it } = require('node:test')
+const {
   govukMarkdown,
   isString,
   noOrphans,
   slugify,
   startsWith
-} from '../lib/string.js'
+} = require('../lib/string.js')
 
-import {
+const {
   arrayOrStringIncludes
-} from '../lib/array.js'
+} = require('../lib/array.js')
 
 describe('String filters', async () => {
   it('Converts Markdown formatted string to HTML', () => {
     assert.equal(
-      govukMarkdown(`He said, -- "A 'simple' sentence..." --- unknown`),
+      govukMarkdown('He said, -- "A \'simple\' sentence..." --- unknown'),
       '<p class="govuk-body">He said, &#8211; &#8220;A &#8216;simple&#8217; sentence&#8230;&#8221; &#8212; unknown</p>\n'
     )
     assert.equal(
-      govukMarkdown("# Large heading", { headingsStartWith: 'l' }),
+      govukMarkdown('# Large heading', { headingsStartWith: 'l' }),
       '<h1 class="govuk-heading-l" id="large-heading">Large heading</h1>'
     )
   })

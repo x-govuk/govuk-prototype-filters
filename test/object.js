@@ -1,9 +1,9 @@
-import { strict as assert } from 'node:assert'
-import { describe, it } from 'node:test'
-import {
+const assert = require('node:assert/strict')
+const { describe, it } = require('node:test')
+const {
   isObject,
   objectToArray
-} from '../lib/object.js'
+} = require('../lib/object.js')
 
 describe('Object filters', async () => {
   it('Checks value is the language type of `Object`', () => {

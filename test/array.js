@@ -1,13 +1,13 @@
-import { strict as assert } from 'node:assert'
-import { describe, it } from 'node:test'
-import {
+const assert = require('node:assert/strict')
+const { describe, it } = require('node:test')
+const {
   arrayOrStringIncludes,
   formatList,
   isArray,
   rejectFromArray,
   selectFromArray,
   uniqueFromArray
-} from '../lib/array.js'
+} = require('../lib/array.js')
 
 describe('Array filters', async () => {
   const array = [

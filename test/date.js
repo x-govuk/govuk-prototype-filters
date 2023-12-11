@@ -1,13 +1,13 @@
-import { strict as assert } from 'node:assert'
-import { describe, it } from 'node:test'
-import {
+const assert = require('node:assert/strict')
+const { describe, it } = require('node:test')
+const {
   daysAgo,
   duration,
   govukDate,
   govukTime,
   isoDateFromDateInput,
   monthName
-} from '../lib/date.js'
+} = require('../lib/date.js')
 
 describe('Date filters', async () => {
   const now = Date.now()
