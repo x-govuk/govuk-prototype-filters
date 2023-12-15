@@ -112,12 +112,12 @@ To return a date from today’s date, pass the special word `"today"` (or `"now"
 
 ## govukDate
 
-Convert an ISO 8601 date time into a human readable date that follows [the GOV.UK style](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#dates).
+Convert an ISO 8601 date string into a human readable date that follows [the GOV.UK style](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#dates).
 
 **Input**
 
 ```njk
-{{ "2021-08-17" | govukDate }}
+{{ "2021-08-17T18:30:00" | govukDate }}
 ```
 
 **Output**
@@ -125,6 +125,8 @@ Convert an ISO 8601 date time into a human readable date that follows [the GOV.U
 ```html
 17 August 2021
 ```
+
+> This filter only outputs a date. If you want to output the date and time from an ISO 8601 date string, use [`govukDateTime`](#govukdatetime).
 
 You can also output a date with a truncated month:
 
@@ -151,14 +153,14 @@ This page was last updated on {{ "today" | govukDate }}.
 **Output**
 
 ```html
-This page was last updated on 22 October 2021.
+This page was last updated on 21 October 2021.
 ```
 
 ---
 
 ## govukTime
 
-Format an ISO 8601 date time or time to a human readable time that follows [the GOV.UK style](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#times).
+Format an ISO 8601 date string or time to a human readable time that follows [the GOV.UK style](https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#times).
 
 **Input**
 
@@ -201,7 +203,81 @@ You submitted your application at {{ "now" | govukTime }}.
 **Output**
 
 ```html
-You submitted your application at 4:32pm.
+You submitted your application at 10:45am.
+```
+
+---
+
+## govukDateTime
+
+Convert an ISO 8601 date string into a human readable date and time that follows the GOV.UK style.
+
+**Input**
+
+```njk
+{{ "2021-08-17T18:30:00" | govukDateTime }}
+```
+
+**Output**
+
+```html
+17 August 2021 at 6:30pm
+```
+
+You can also output the time before the date:
+
+**Input**
+
+```njk
+{{ "2021-08-17T18:30:00" | govukDateTime("on") }}
+```
+
+**Output**
+
+```html
+6:30pm on 17 August 2021
+```
+
+To get the current date and time, pass the special word `"now"` (or `"today"`):
+
+**Input**
+
+```njk
+This page was last updated on {{ "now" | govukDateTime }}.
+```
+
+**Output**
+
+```html
+This page was last updated on 21 October 2021 at 10:45am.
+```
+
+If the date doesn’t include a time, only the date will be output:
+
+**Input**
+
+```njk
+{{ "2021-08-17" | govukDateTime }}
+```
+
+**Output**
+
+```html
+17 August 2021
+```
+
+If only a time is given, only a time will be output:
+
+**Input**
+
+```njk
+{{ "18:30" | govukDateTime }}
+```
+
+**Output**
+
+```html
+6:30pm
 ```
 
 ---

@@ -5,6 +5,7 @@ const {
   duration,
   govukDate,
   govukTime,
+  govukDateTime,
   isoDateFromDateInput,
   monthName
 } = require('../lib/date.js')
@@ -89,6 +90,35 @@ describe('Date filters', async () => {
 
   it('Returns error converting an ISO 8601 date time to a time using the GOV.UK style', () => {
     assert.equal(govukTime('2021-08-17T25:61:00'), 'Invalid DateTime')
+  })
+
+  it('Converts ISO 8601 date time to date time with the GOV.UK style', () => {
+    assert.equal(
+      govukDateTime('2021-08-17T18:30:00'),
+      '17 August 2021 at 6:30pm'
+    )
+    assert.equal(
+      govukDateTime('2021-08-17T18:30:00', 'on'),
+      '6:30pm on 17 August 2021'
+    )
+    assert.equal(
+      govukDateTime('2021-08-17T00:00:59'),
+      '17 August 2021 at 12am (midnight)'
+    )
+    assert.equal(
+      govukDateTime('2021-08-17T12:00:59'),
+      '17 August 2021 at 12pm (midday)'
+    )
+    assert.equal(govukDateTime('2021-08-17'), '17 August 2021')
+    assert.equal(govukDateTime('18:30'), '6:30pm')
+    assert.ok(govukDateTime('now'))
+  })
+
+  it('Returns error converting an ISO 8601 date time to date time using the GOV.UK style', () => {
+    assert.equal(
+      govukDateTime('2021-08-17T25:61:00'),
+      '17 August 2021 at Invalid DateTime'
+    )
   })
 
   it('Converts `govukDateInput` values to ISO 8601 date', () => {
