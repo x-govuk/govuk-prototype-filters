@@ -24,7 +24,9 @@
   "scripts": {
     "build": "eleventy --quiet",
     "start": "eleventy --serve --quiet",
-    "lint": "eslint '**/*.js'",
+    "lint:prettier": "prettier . --check",
+    "lint:js": "eslint '**/*.js'",
+    "lint": "npm run lint:prettier && npm run lint:js",
     "test": "node --test && npx govuk-prototype-kit@latest validate-plugin",
     "coverage": "node --test --experimental-test-coverage",
     "release": "np"
@@ -43,30 +45,21 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",
     "@x-govuk/govuk-eleventy-plugin": "^5.0.6",
-    "eslint": "^8.39.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-jsdoc": "^46.0.0",
-    "np": "^9.0.0"
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsdoc": "^46.9.0",
+    "eslint-plugin-n": "^16.4.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-promise": "^6.1.0",
+    "np": "^9.2.0",
+    "prettier": "^3.1.0"
   },
   "peerDependencies": {
     "govuk-prototype-kit": "^13.0.0"
   },
   "engines": {
     "node": "^18 || ^20"
-  },
-  "eslintConfig": {
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:jsdoc/recommended",
-      "standard"
-    ],
-    "rules": {
-      "jsdoc/tag-lines": 0
-    }
-  },
-  "eslintIgnore": [
-    "_site"
-  ]
+  }
 }
