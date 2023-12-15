@@ -2,6 +2,7 @@
 order: 3
 title: Date filters
 ---
+
 <!-- markdownlint-disable no-emphasis-as-header -->
 
 [[toc]]
@@ -43,7 +44,6 @@ This can be useful within conditions to determine whether a date is in the past 
 
 It can also be combined with [`plural`](/number#plural) to show the number of days ago:
 
-
 **Input**
 
 ```njk
@@ -57,7 +57,7 @@ Case opened 1 day ago
 Case opened 2 days ago
 ```
 
-***
+---
 
 ## duration
 
@@ -108,7 +108,7 @@ To return a date from today’s date, pass the special word `"today"` (or `"now"
 2023-05-11T09:00:59
 ```
 
-***
+---
 
 ## govukDate
 
@@ -154,7 +154,7 @@ This page was last updated on {{ "today" | govukDate }}.
 This page was last updated on 22 October 2021.
 ```
 
-***
+---
 
 ## govukTime
 
@@ -204,7 +204,7 @@ You submitted your application at {{ "now" | govukTime }}.
 You submitted your application at 4:32pm.
 ```
 
-***
+---
 
 ## isoDateFromDateInput
 
@@ -269,7 +269,7 @@ const data = {
 2001-05
 ```
 
-***
+---
 
 ## monthName
 

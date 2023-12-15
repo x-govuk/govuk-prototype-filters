@@ -2,6 +2,7 @@
 order: 6
 title: String filters
 ---
+
 <!-- markdownlint-disable no-emphasis-as-header -->
 
 [[toc]]
@@ -67,7 +68,7 @@ Start headings using the smaller size by setting the `headingsStartWith` option:
 <h4 class="govuk-heading-s">Heading level 4</h4>
 ```
 
-***
+---
 
 ## includes
 
@@ -87,7 +88,7 @@ true
 false
 ```
 
-***
+---
 
 ## isString
 
@@ -107,7 +108,7 @@ true
 false
 ```
 
-***
+---
 
 ## noOrphans
 
@@ -127,7 +128,7 @@ This prevents an orphaned word appearing by itself at the end of a paragraph. Th
 Department for Business, Energy & Industrial&amp;nbsp;Strategy
 ```
 
-***
+---
 
 ## slugify
 
@@ -147,7 +148,7 @@ This can be useful to slugify titles for use in URLs or fragment identifiers.
 department-for-education
 ```
 
-***
+---
 
 ## startsWith
 

@@ -2,6 +2,7 @@
 order: 5
 title: Object filters
 ---
+
 <!-- markdownlint-disable no-emphasis-as-header -->
 
 [[toc]]
@@ -26,7 +27,7 @@ true
 false
 ```
 
-***
+---
 
 ## objectToArray
 

@@ -2,6 +2,7 @@
 order: 4
 title: Number filters
 ---
+
 <!-- markdownlint-disable no-emphasis-as-header -->
 
 [[toc]]
@@ -30,10 +31,10 @@ Convert a number into a string formatted as currency.
 
 Use the `display` option to change how the currency is displayed. Accepts the following values:
 
-* `"narrowSymbol"`: use a narrow format symbol, for example ‘$100’.
-* `"symbol"`: use a localized currency symbol, for example ‘US$100’.
-* `"code"`: use the ISO 4217 currency code, for example ‘USD $75.00’.
-* `"name"`: use a localised currency name, for example ‘75.00 US dollars’.
+- `"narrowSymbol"`: use a narrow format symbol, for example ‘$100’.
+- `"symbol"`: use a localized currency symbol, for example ‘US$100’.
+- `"code"`: use the ISO 4217 currency code, for example ‘USD $75.00’.
+- `"name"`: use a localised currency name, for example ‘75.00 US dollars’.
 
 Default is `"symbol"`.
 
@@ -89,7 +90,7 @@ Use the `unit` option to change the unit of currency. Accepts an [ISO 4217 curre
 US$75.00
 ```
 
-***
+---
 
 ## isNumber
 
@@ -109,7 +110,7 @@ true
 false
 ```
 
-***
+---
 
 ## ordinal
 
@@ -129,7 +130,7 @@ fourth
 22nd
 ```
 
-***
+---
 
 ## plural
 

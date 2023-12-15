@@ -2,6 +2,7 @@
 order: 2
 title: Array filters
 ---
+
 <!-- markdownlint-disable no-emphasis-as-header -->
 
 [[toc]]
@@ -36,7 +37,7 @@ To format the list using a disjunction:
 England, Scotland or Wales
 ```
 
-***
+---
 
 ## includes
 
@@ -56,7 +57,7 @@ true
 false
 ```
 
-***
+---
 
 ## isArray
 
@@ -76,7 +77,7 @@ true
 false
 ```
 
-***
+---
 
 ## rejectFromArray
 
@@ -103,7 +104,7 @@ Reject items in an array that have a key with a given value.
 }]
 ```
 
-***
+---
 
 ## selectFromArray
 
@@ -130,7 +131,7 @@ Select items in an array that have a key with a given value.
 }]
 ```
 
-***
+---
 
 ## uniqueFromArray
 
