@@ -33,13 +33,10 @@ describe('Date filters', async () => {
     dt.setDate(dt.getDate() + 5)
 
     assert.equal(
-      (duration('today', 5)).substring(0, 10),
+      duration('today', 5).substring(0, 10),
       dt.toISOString().substring(0, 10)
     )
-    assert.equal(
-      duration('2023-05-11', 5),
-      '2023-05-16T00:00:00.000+01:00'
-    )
+    assert.equal(duration('2023-05-11', 5), '2023-05-16T00:00:00.000+01:00')
     assert.equal(
       duration('2023-05-11', 5, 'days'),
       '2023-05-16T00:00:00.000+01:00'
@@ -69,10 +66,7 @@ describe('Date filters', async () => {
     assert.equal(govukDate('2021-08', 'truncate'), 'Aug 2021')
 
     const govukDateToday = Date.parse(govukDate('today'))
-    assert.equal(
-      String(govukDateToday).slice(0, 4),
-      String(now).slice(0, 4)
-    )
+    assert.equal(String(govukDateToday).slice(0, 4), String(now).slice(0, 4))
 
     const govukDateTodayTruncated = Date.parse(govukDate('today', 'truncate'))
     assert.equal(
@@ -110,11 +104,14 @@ describe('Date filters', async () => {
 
   it('Converts `govukDateInput` with `namePrefix` to ISO 8601 date', () => {
     assert.equal(
-      isoDateFromDateInput({
-        'example-day': '01',
-        'example-month': '02',
-        'example-year': '2012'
-      }, 'example'),
+      isoDateFromDateInput(
+        {
+          'example-day': '01',
+          'example-month': '02',
+          'example-year': '2012'
+        },
+        'example'
+      ),
       '2012-02-01'
     )
   })

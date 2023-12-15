@@ -8,9 +8,7 @@ const {
   startsWith
 } = require('../lib/string.js')
 
-const {
-  arrayOrStringIncludes
-} = require('../lib/array.js')
+const { arrayOrStringIncludes } = require('../lib/array.js')
 
 describe('String filters', async () => {
   it('Converts Markdown formatted string to HTML', () => {
@@ -30,12 +28,18 @@ describe('String filters', async () => {
   })
 
   it('Inserts non-breaking space between the last two words of a string', () => {
-    assert.equal(noOrphans('Department for Education'), 'Department for&nbsp;Education')
+    assert.equal(
+      noOrphans('Department for Education'),
+      'Department for&nbsp;Education'
+    )
     assert.equal(noOrphans('Government'), 'Government')
   })
 
   it('Converts string to kebab-case', () => {
-    assert.equal(slugify('Department for Education'), 'department-for-education')
+    assert.equal(
+      slugify('Department for Education'),
+      'department-for-education'
+    )
   })
 
   it('Checks string starts with a value', () => {

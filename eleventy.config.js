@@ -8,10 +8,13 @@ module.exports = function (eleventyConfig) {
     fontFamily: 'system-ui, sans-serif',
     icons: {
       mask: 'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-mask-icon.svg?raw=true',
-      shortcut: 'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-favicon.ico',
-      touch: 'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-apple-touch-icon.png'
+      shortcut:
+        'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-favicon.ico',
+      touch:
+        'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-apple-touch-icon.png'
     },
-    opengraphImageUrl: 'https://x-govuk.github.io/govuk-prototype-filters/assets/opengraph-image.png',
+    opengraphImageUrl:
+      'https://x-govuk.github.io/govuk-prototype-filters/assets/opengraph-image.png',
     homeKey: 'GOV.UK Prototype Filters',
     parentSite: {
       url: 'https://x-govuk.github.io/#projects',
@@ -37,13 +40,15 @@ module.exports = function (eleventyConfig) {
         text: '© X-GOVUK'
       },
       meta: {
-        items: [{
-          href: 'https://mozilla.github.io/nunjucks/templating.html#builtin-filters',
-          text: 'Builtin Nunjucks filters (opens in a new tab)',
-          attributes: {
-            target: '_blank'
+        items: [
+          {
+            href: 'https://mozilla.github.io/nunjucks/templating.html#builtin-filters',
+            text: 'Builtin Nunjucks filters (opens in a new tab)',
+            attributes: {
+              target: '_blank'
+            }
           }
-        }]
+        ]
       }
     }
   })
@@ -60,8 +65,6 @@ module.exports = function (eleventyConfig) {
       input: 'docs',
       layouts: '../node_modules/@x-govuk/govuk-eleventy-plugin/layouts'
     },
-    pathPrefix: process.env.GITHUB_ACTIONS
-      ? '/govuk-prototype-filters/'
-      : '/'
+    pathPrefix: process.env.GITHUB_ACTIONS ? '/govuk-prototype-filters/' : '/'
   }
 }

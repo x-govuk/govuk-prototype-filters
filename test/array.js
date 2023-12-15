@@ -46,23 +46,22 @@ describe('Array filters', async () => {
   })
 
   it('Rejects items in an array that have a key with a given value', () => {
-    assert.deepEqual(
-      rejectFromArray(array, 'role', 'admin'),
-      [{ name: 'David Jones', role: 'user' }]
-    )
+    assert.deepEqual(rejectFromArray(array, 'role', 'admin'), [
+      { name: 'David Jones', role: 'user' }
+    ])
   })
 
   it('Selects items in an array that have a key with a given value', () => {
-    assert.deepEqual(
-      selectFromArray(array, 'role', 'admin'),
-      [{ name: 'Sally Smith', role: 'admin' }]
-    )
+    assert.deepEqual(selectFromArray(array, 'role', 'admin'), [
+      { name: 'Sally Smith', role: 'admin' }
+    ])
   })
 
   it('Returns array containing unique items', () => {
-    assert.deepEqual(
-      uniqueFromArray(['Orange', 'Banana', 'Apple', 'Orange']),
-      ['Orange', 'Banana', 'Apple']
-    )
+    assert.deepEqual(uniqueFromArray(['Orange', 'Banana', 'Apple', 'Orange']), [
+      'Orange',
+      'Banana',
+      'Apple'
+    ])
   })
 })
