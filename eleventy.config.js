@@ -4,8 +4,6 @@ const govukEleventyPlugin = require('@x-govuk/govuk-eleventy-plugin')
 module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(govukEleventyPlugin, {
-    brandColour: '#28a',
-    fontFamily: 'system-ui, sans-serif',
     icons: {
       mask: 'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-mask-icon.svg?raw=true',
       shortcut:
@@ -20,11 +18,11 @@ module.exports = function (eleventyConfig) {
       url: 'https://x-govuk.github.io/#projects',
       name: 'X-GOVUK projects'
     },
-    url: process.env.GITHUB_ACTIONS
-      ? 'https://x-govuk.github.io/govuk-prototype-filters/'
-      : '/',
+    url:
+      process.env.GITHUB_ACTIONS &&
+      'https://x-govuk.github.io/govuk-prototype-filters/',
     header: {
-      organisationLogo: 'x-govuk',
+      logotype: 'x-govuk',
       organisationName: 'X-GOVUK',
       productName: 'Prototype Filters',
       search: {
@@ -65,6 +63,6 @@ module.exports = function (eleventyConfig) {
       input: 'docs',
       layouts: '../node_modules/@x-govuk/govuk-eleventy-plugin/layouts'
     },
-    pathPrefix: process.env.GITHUB_ACTIONS ? '/govuk-prototype-filters/' : '/'
+    pathPrefix: process.env.GITHUB_ACTIONS && '/govuk-prototype-filters/'
   }
 }
