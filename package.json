@@ -41,7 +41,7 @@
     "govuk-markdown": "^0.6.0",
     "lodash": "^4.17.21",
     "luxon": "^3.2.1",
-    "marked": "11.1.0",
+    "marked": "^11.1.0",
     "marked-smartypants": "^1.0.0",
     "pluralize": "^8.0.0"
   },
@@ -52,7 +52,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-jsdoc": "^46.9.0",
+    "eslint-plugin-jsdoc": "^47.0.0",
     "eslint-plugin-n": "^16.4.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-promise": "^6.1.0",
