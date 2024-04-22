@@ -345,6 +345,28 @@ const data = {
 2001-05
 ```
 
+The filter also accepts month names written out in full or abbreviated form (for example, ‘january’ or ‘jan’) as some users may enter months in this way:
+
+```js
+const data = {
+  expires: {
+    day: '23',
+    month: 'april',
+    year: '2024',
+  }
+}
+```
+
+```njk
+{{ data.expires | isoDateFromDateInput }}
+```
+
+**Output**
+
+```html
+2024-04-23
+```
+
 ---
 
 ## monthName

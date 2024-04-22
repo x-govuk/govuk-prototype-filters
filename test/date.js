@@ -132,6 +132,72 @@ describe('Date filters', async () => {
     )
   })
 
+  it('Converts `govukDateInput` values with a full-length word for the month to ISO 8601 date', () => {
+    assert.equal(
+      isoDateFromDateInput({
+        day: '01',
+        month: 'october',
+        year: '2012'
+      }),
+      '2012-10-01'
+    )
+  })
+
+  it('Converts `govukDateInput` values with a full-length uppercased word for the month to ISO 8601 date', () => {
+    assert.equal(
+      isoDateFromDateInput({
+        day: '01',
+        month: 'OCTOBER',
+        year: '2012'
+      }),
+      '2012-10-01'
+    )
+  })
+
+  it('Converts `govukDateInput` values with an abbreviated word for the month to ISO 8601 date', () => {
+    assert.equal(
+      isoDateFromDateInput({
+        day: '01',
+        month: 'oct',
+        year: '2012'
+      }),
+      '2012-10-01'
+    )
+  })
+
+  it('Converts `govukDateInput` values with an abbreviated uppercase word for the month to ISO 8601 date', () => {
+    assert.equal(
+      isoDateFromDateInput({
+        day: '01',
+        month: 'OCT',
+        year: '2012'
+      }),
+      '2012-10-01'
+    )
+  })
+
+  it('Converts `govukDateInput` values with leading and trailing spaces to ISO 8601 date', () => {
+    assert.equal(
+      isoDateFromDateInput({
+        day: ' 01 ',
+        month: ' 10 ',
+        year: ' 2012 '
+      }),
+      '2012-10-01'
+    )
+  })
+
+  it('Converts `govukDateInput` values with single digit months and days to ISO 8601 date', () => {
+    assert.equal(
+      isoDateFromDateInput({
+        day: '1',
+        month: '4',
+        year: '2012'
+      }),
+      '2012-04-01'
+    )
+  })
+
   it('Converts `govukDateInput` with `namePrefix` to ISO 8601 date', () => {
     assert.equal(
       isoDateFromDateInput(
@@ -146,8 +212,54 @@ describe('Date filters', async () => {
     )
   })
 
+  it('Converts `govukDateInput` with `namePrefix` and abbreviated word for the month to ISO 8601 date', () => {
+    assert.equal(
+      isoDateFromDateInput(
+        {
+          'example-day': '01',
+          'example-month': 'feb',
+          'example-year': '2012'
+        },
+        'example'
+      ),
+      '2012-02-01'
+    )
+  })
+
   it('Returns error converting `govukDateInput` to an ISO 8601 date', () => {
     assert.equal(isoDateFromDateInput({ foo: 'bar' }), 'Invalid DateTime')
+  })
+
+  it('Returns error converting `govukDateInput` values where month contains a word that starts with a valid abbreviation for the month', () => {
+    assert.equal(
+      isoDateFromDateInput({
+        day: '01',
+        month: 'octopus',
+        year: '2012'
+      }),
+      'Invalid DateTime'
+    )
+  })
+
+  it('Returns error converting `govukDateInput` values where only month is empty', () => {
+    assert.equal(
+      isoDateFromDateInput({
+        day: '01',
+        month: '',
+        year: '2012'
+      }),
+      'Invalid DateTime'
+    )
+  })
+
+  it('Returns error converting `govukDateInput` values where only month is undefined', () => {
+    assert.equal(
+      isoDateFromDateInput({
+        day: '01',
+        year: '2012'
+      }),
+      'Invalid DateTime'
+    )
   })
 
   it('Converts number into name of corresponding month.', () => {
