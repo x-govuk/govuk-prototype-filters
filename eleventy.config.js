@@ -14,6 +14,7 @@ module.exports = function (eleventyConfig) {
     opengraphImageUrl:
       'https://x-govuk.github.io/govuk-prototype-filters/assets/opengraph-image.png',
     homeKey: 'GOV.UK Prototype Filters',
+    titleSuffix: 'GOV.UK Prototype Filters',
     parentSite: {
       url: 'https://x-govuk.github.io/#projects',
       name: 'X-GOVUK projects'
@@ -23,7 +24,6 @@ module.exports = function (eleventyConfig) {
       'https://x-govuk.github.io/govuk-prototype-filters/',
     header: {
       logotype: 'x-govuk',
-      organisationName: 'X-GOVUK',
       productName: 'Prototype Filters',
       search: {
         indexPath: '/search.json',
