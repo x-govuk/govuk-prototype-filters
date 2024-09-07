@@ -38,7 +38,7 @@
     "access": "public"
   },
   "dependencies": {
-    "govuk-markdown": "^0.7.0",
+    "govuk-markdown": "^0.8.0",
     "lodash": "^4.17.21",
     "luxon": "^3.2.1",
     "marked": "^14.0.0",
