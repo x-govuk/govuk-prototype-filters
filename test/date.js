@@ -76,6 +76,11 @@ describe('Date filters', async () => {
     )
   })
 
+  it('Truncates September to 3 letters', () => {
+    assert.equal(govukDate('2024-09-21', 'truncate'), '21 Sep 2024')
+    assert.equal(govukDate('2024-09', 'truncate'), 'Sep 2024')
+  })
+
   it('Returns error converting ISO 8601 date to date with GOV.UK style', () => {
     assert.equal(govukDate('2021-23-45'), 'Invalid DateTime')
   })
