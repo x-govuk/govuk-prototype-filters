@@ -1,7 +1,7 @@
-const process = require('node:process')
-const govukEleventyPlugin = require('@x-govuk/govuk-eleventy-plugin')
+import process from 'node:process'
+import govukEleventyPlugin from '@x-govuk/govuk-eleventy-plugin'
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(govukEleventyPlugin, {
     icons: {

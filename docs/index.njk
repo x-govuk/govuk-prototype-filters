@@ -9,7 +9,7 @@ image:
   alt: Illustration of an interface with checkboxes and radio buttons being generated from code, floating above a laptop.
 startButton:
   href: /get-started
-content: |
+introduction: |
   Filters are a feature of the Nunjucks templating language that allow you to modify variables. Separated by a pipe symbol (`|`), they can be chained together, with the output of one filter passed on to the next.
 
   For example, `{{ "<p>GOV.UK</p>" | striptags | lower }}` will remove the HTML tags, lower-case the remaining string and output `gov.uk`.
@@ -24,7 +24,7 @@ content: |
 ---
 <div class="govuk-grid-row">
   <section class="govuk-grid-column-two-thirds-from-desktop">
-    {{ content | markdown }}
+    {{ introduction | markdown }}
   </section>
   <section class="govuk-grid-column-full">
     <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl govuk-!-margin-top-0">
