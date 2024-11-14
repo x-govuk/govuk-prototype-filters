@@ -1,5 +1,7 @@
 const assert = require('node:assert/strict')
 const { describe, it } = require('node:test')
+
+const { arrayOrStringIncludes } = require('../lib/array.js')
 const {
   govukMarkdown,
   isString,
@@ -7,8 +9,6 @@ const {
   slugify,
   startsWith
 } = require('../lib/string.js')
-
-const { arrayOrStringIncludes } = require('../lib/array.js')
 
 describe('String filters', async () => {
   it('Converts Markdown formatted string to HTML', () => {

@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict')
 const { describe, it } = require('node:test')
+
 const { isObject, objectToArray } = require('../lib/object.js')
 
 describe('Object filters', async () => {

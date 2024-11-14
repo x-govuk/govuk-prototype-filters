@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict')
 const { describe, it } = require('node:test')
+
 const { currency, isNumber, ordinal, plural } = require('../lib/number.js')
 
 describe('Number filters', async () => {
