@@ -97,6 +97,8 @@ Reject items in an array that have a key with a given value.
 
 **Output**
 
+Using [Nunjucks’ built-in `dump` filter](https://mozilla.github.io/nunjucks/templating.html#dump) to render the result as a string:
+
 ```html
 [{
   name: "David Jones",
@@ -123,6 +125,8 @@ Select items in an array that have a key with a given value.
 ```
 
 **Output**
+
+Using [Nunjucks’ built-in `dump` filter](https://mozilla.github.io/nunjucks/templating.html#dump) to render the result as a string:
 
 ```html
 [{

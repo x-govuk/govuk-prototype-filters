@@ -45,6 +45,8 @@ Convert an object into an array, using each object’s key as the value for `id`
 
 **Output**
 
+Using [Nunjucks’ built-in `dump` filter](https://mozilla.github.io/nunjucks/templating.html#dump) to render the result as a string:
+
 ```html
 [
   { id: "a", name: "Sir Robert Walpole" },
