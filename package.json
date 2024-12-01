@@ -41,7 +41,7 @@
     "govuk-markdown": "^0.8.0",
     "lodash": "^4.17.21",
     "luxon": "^3.2.1",
-    "marked": "^14.0.0",
+    "marked": "^15.0.0",
     "marked-smartypants": "^1.0.0",
     "pluralize": "^8.0.0"
   },
