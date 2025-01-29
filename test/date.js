@@ -12,8 +12,6 @@ const {
 } = require('../lib/date.js')
 
 describe('Date filters', async () => {
-  const now = Date.now()
-
   it('Returns correct number of days ago', () => {
     const dateNow = new Date()
     const yesterday = new Date(dateNow)
@@ -66,15 +64,14 @@ describe('Date filters', async () => {
     assert.equal(govukDate('2021-08-17', 'truncate'), '17 Aug 2021')
     assert.equal(govukDate('2021-08'), 'August 2021')
     assert.equal(govukDate('2021-08', 'truncate'), 'Aug 2021')
+  })
 
-    const govukDateToday = Date.parse(govukDate('today'))
-    assert.equal(String(govukDateToday).slice(0, 4), String(now).slice(0, 4))
+  it('Converts keyword to a date using the GOV.UK style', (context) => {
+    // Mock now as 29 January 2025 at 5:30pm
+    context.mock.timers.enable({ apis: ['Date'], now: 1738171800000 })
 
-    const govukDateTodayTruncated = Date.parse(govukDate('today', 'truncate'))
-    assert.equal(
-      String(govukDateTodayTruncated).slice(0, 4),
-      String(now).slice(0, 4)
-    )
+    assert.equal(govukDate('today'), '29 January 2025')
+    assert.equal(govukDate('now'), '29 January 2025')
   })
 
   it('Truncates September to 3 letters', () => {
@@ -91,7 +88,14 @@ describe('Date filters', async () => {
     assert.equal(govukTime('2021-08-17T00:00:59'), '12am (midnight)')
     assert.equal(govukTime('2021-08-17T12:00:59'), '12pm (midday)')
     assert.equal(govukTime('18:30'), '6:30pm')
-    assert.ok(govukTime('now'))
+  })
+
+  it('Converts keyword to a time with the GOV.UK style', (context) => {
+    // Mock now as 29 January 2025 at 5:30pm
+    context.mock.timers.enable({ apis: ['Date'], now: 1738171800000 })
+
+    assert.equal(govukTime('now'), '5:30pm')
+    assert.equal(govukTime('today'), '5:30pm')
   })
 
   it('Returns error converting an ISO 8601 date time to a time using the GOV.UK style', () => {
@@ -117,7 +121,16 @@ describe('Date filters', async () => {
     )
     assert.equal(govukDateTime('2021-08-17'), '17 August 2021')
     assert.equal(govukDateTime('18:30'), '6:30pm')
-    assert.ok(govukDateTime('now'))
+  })
+
+  it('Converts keyword to date time with the GOV.UK style', (context) => {
+    // Mock now as 29 January 2025 at 5:30pm
+    context.mock.timers.enable({ apis: ['Date'], now: 1738171800000 })
+
+    assert.equal(govukDateTime('now'), '29 January 2025 at 5:30pm')
+    assert.equal(govukDateTime('now', 'on'), '5:30pm on 29 January 2025')
+    assert.equal(govukDateTime('today'), '29 January 2025 at 5:30pm')
+    assert.equal(govukDateTime('today', 'on'), '5:30pm on 29 January 2025')
   })
 
   it('Returns error converting an ISO 8601 date time to date time using the GOV.UK style', () => {
