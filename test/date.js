@@ -83,6 +83,20 @@ describe('Date filters', async () => {
     assert.equal(govukDate('2021-08', 'truncate'), 'Aug 2021')
   })
 
+  it('Converts ISO 8601 date time with day of the week', () => {
+    assert.equal(
+      govukDate('2021-08-17T12:00:00', { showWeekday: true }),
+      'Tuesday 17 August 2021'
+    )
+    assert.equal(
+      govukDate('2021-08-17T12:00:00', {
+        showWeekday: true,
+        truncate: true
+      }),
+      'Tue, 17 Aug 2021'
+    )
+  })
+
   it('Converts keyword to a date using the GOV.UK style', (context) => {
     // Mock now as 29 January 2025 at 5:30pm
     context.mock.timers.enable({ apis: ['Date'], now: 1738171800000 })
@@ -163,6 +177,27 @@ describe('govukDateTime', async () => {
     assert.equal(
       govukDateTime('2021-08-17T18:30:00', 'truncate'),
       '17 Aug 2021 at 6:30pm'
+    )
+  })
+
+  it('Converts ISO 8601 date time to date time with day of the week', () => {
+    assert.equal(
+      govukDateTime('2021-08-17T12:00:00', { showWeekday: true }),
+      'Tuesday 17 August 2021 at 12pm (midday)'
+    )
+    assert.equal(
+      govukDateTime('2021-08-17T12:00:00', {
+        showWeekday: true,
+        timeFirst: true
+      }),
+      '12pm (midday) on Tuesday 17 August 2021'
+    )
+    assert.equal(
+      govukDateTime('2021-08-17T12:00:00', {
+        showWeekday: true,
+        truncate: true
+      }),
+      'Tue, 17 Aug 2021 at 12pm (midday)'
     )
   })
 

@@ -161,6 +161,22 @@ Use the `truncate` option to use a truncated month name. Default is `false`.
 17 Aug 2021
 ```
 
+### `showWeekday`
+
+Use the `showWeekday` option to show the day of the week. Default is `false`.
+
+**Input**
+
+```njk
+{{ "2021-08-17T18:30:00" | govukDate(showWeekday=true) }}
+```
+
+**Output**
+
+```html
+Tuesday 17 August 2021
+```
+
 ---
 
 ## govukTime
@@ -307,6 +323,22 @@ Use the `truncate` option to use a truncated month name. Default is `false`.
 
 ```html
 17 Aug 2021 at 6:30pm
+```
+
+### `showWeekday`
+
+Use the `showWeekday` option to show the day of the week. Default is `false`.
+
+**Input**
+
+```njk
+{{ "2021-08-17T18:30:00" | govukDateTime(showWeekday=true) }}
+```
+
+**Output**
+
+```html
+Tuesday 17 August 2021 at 6:30pm
 ```
 
 ---
