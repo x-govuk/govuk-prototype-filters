@@ -299,4 +299,9 @@ describe('monthName', async () => {
     assert.equal(monthName(3, 'truncate'), 'Mar')
     assert.equal(monthName('3', 'truncate'), 'Mar')
   })
+
+  it('Truncates September to 3 letters', () => {
+    assert.equal(monthName(9, 'truncate'), 'Sep')
+    assert.equal(monthName('9', 'truncate'), 'Sep')
+  })
 })
