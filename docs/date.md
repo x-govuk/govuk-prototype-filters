@@ -7,6 +7,29 @@ title: Date filters
 
 [[toc]]
 
+## age
+
+Return a person’s age, with reference to [the NHS.UK content guide](https://service-manual.nhs.uk/content/inclusive-content/age).
+
+If the birth date is less than 2 years ago, the age is returned in months. If the birth date is less than 6 months ago, the age is returned in weeks.
+
+**Input**
+
+```njk
+{# Current datetime is 2025-02-14T12:00:00 #}
+{{ "2025-02-06" | age }}
+{{ "2024-02-14" | age }}
+{{ "2020-02-14" | age }}
+```
+
+**Output**
+
+```html
+2 weeks
+12 months
+5 years
+```
+
 ## daysAgo
 
 Return how many days ago a date was.
