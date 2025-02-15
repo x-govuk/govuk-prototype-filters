@@ -2,6 +2,7 @@ const assert = require('node:assert/strict')
 const { describe, it } = require('node:test')
 
 const {
+  age,
   daysAgo,
   duration,
   govukDate,
@@ -10,6 +11,53 @@ const {
   isoDateFromDateInput,
   monthName
 } = require('../lib/date.js')
+
+describe('age', async () => {
+  it('Returns an age in weeks, until 6 months', (context) => {
+    // Mock now as 15 October 2025 at 10:00am
+    context.mock.timers.enable({ apis: ['Date'], now: 1760522400000 })
+
+    assert.equal(age('2025-10-14'), '1 week') // 1 day old
+    assert.equal(age('2025-10-02'), '1 week') // 13 days old
+    assert.equal(age('2025-10-01'), '2 weeks') // 14 days old
+    assert.equal(age('2025-09-14'), '4 weeks')
+  })
+
+  it('Returns an age in months, until 2 years', (context) => {
+    // Mock now as 15 October 2025 at 10:00am
+    context.mock.timers.enable({ apis: ['Date'], now: 1760522400000 })
+
+    // Before 6 month birthday
+    assert.equal(age('2025-04-16'), '26 weeks')
+
+    // On 6 month birthday
+    assert.equal(age('2025-04-15'), '6 months')
+  })
+
+  it('Returns an age in years', (context) => {
+    // Mock now as 15 October 2025 at 10:00am
+    context.mock.timers.enable({ apis: ['Date'], now: 1760522400000 })
+
+    // Before second birthday
+    assert.equal(age('2023-10-16'), '23 months')
+
+    // On second birthday
+    assert.equal(age('2023-10-15'), '2 years')
+
+    // Before third birthday
+    assert.equal(age('2022-10-16'), '2 years')
+
+    // On third birthday
+    assert.equal(age('2022-10-15'), '3 years')
+
+    // After third birthday
+    assert.equal(age('2022-10-14'), '3 years')
+  })
+
+  it('Returns error if date can’t be parsed', () => {
+    assert.equal(age('2024-12-32'), 'Invalid DateTime')
+  })
+})
 
 describe('daysAgo', async () => {
   it('Returns correct number of days ago', () => {
