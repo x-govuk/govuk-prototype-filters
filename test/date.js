@@ -64,9 +64,22 @@ describe('duration', async () => {
 
 describe('Date filters', async () => {
   it('Converts ISO 8601 date time to a date using the GOV.UK style', () => {
+    assert.equal(govukDate('2021-08-17T12:00:00'), '17 August 2021')
     assert.equal(govukDate('2021-08-17'), '17 August 2021')
-    assert.equal(govukDate('2021-08-17', 'truncate'), '17 Aug 2021')
     assert.equal(govukDate('2021-08'), 'August 2021')
+  })
+
+  it('Converts ISO 8601 date time to a truncated date', () => {
+    assert.equal(
+      govukDate('2021-08-17T12:00:00', { truncate: true }),
+      '17 Aug 2021'
+    )
+    assert.equal(govukDate('2021-08-17', { truncate: true }), '17 Aug 2021')
+    assert.equal(govukDate('2021-08', { truncate: true }), 'Aug 2021')
+
+    // Using deprecated string parameter
+    assert.equal(govukDate('2021-08-17T12:00:00', 'truncate'), '17 Aug 2021')
+    assert.equal(govukDate('2021-08-17', 'truncate'), '17 Aug 2021')
     assert.equal(govukDate('2021-08', 'truncate'), 'Aug 2021')
   })
 
@@ -79,8 +92,8 @@ describe('Date filters', async () => {
   })
 
   it('Truncates September to 3 letters', () => {
-    assert.equal(govukDate('2024-09-21', 'truncate'), '21 Sep 2024')
-    assert.equal(govukDate('2024-09', 'truncate'), 'Sep 2024')
+    assert.equal(govukDate('2024-09-21', { truncate: true }), '21 Sep 2024')
+    assert.equal(govukDate('2024-09', { truncate: true }), 'Sep 2024')
   })
 
   it('Returns error converting ISO 8601 date to date with GOV.UK style', () => {
@@ -116,10 +129,6 @@ describe('govukDateTime', async () => {
       '17 August 2021 at 6:30pm'
     )
     assert.equal(
-      govukDateTime('2021-08-17T18:30:00', 'on'),
-      '6:30pm on 17 August 2021'
-    )
-    assert.equal(
       govukDateTime('2021-08-17T00:00:59'),
       '17 August 2021 at 12am (midnight)'
     )
@@ -131,14 +140,46 @@ describe('govukDateTime', async () => {
     assert.equal(govukDateTime('18:30'), '6:30pm')
   })
 
+  it('Converts ISO 8601 date time to date time with time first', () => {
+    assert.equal(
+      govukDateTime('2021-08-17T18:30:00', { timeFirst: true }),
+      '6:30pm on 17 August 2021'
+    )
+
+    // Using deprecated string parameter
+    assert.equal(
+      govukDateTime('2021-08-17T18:30:00', 'on'),
+      '6:30pm on 17 August 2021'
+    )
+  })
+
+  it('Converts ISO 8601 date time to date time with truncated date', () => {
+    assert.equal(
+      govukDateTime('2021-08-17T18:30:00', { truncate: true }),
+      '17 Aug 2021 at 6:30pm'
+    )
+
+    // Using deprecated string parameter
+    assert.equal(
+      govukDateTime('2021-08-17T18:30:00', 'truncate'),
+      '17 Aug 2021 at 6:30pm'
+    )
+  })
+
   it('Converts keyword to date time with the GOV.UK style', (context) => {
     // Mock now as 29 January 2025 at 5:30pm
     context.mock.timers.enable({ apis: ['Date'], now: 1738171800000 })
 
     assert.equal(govukDateTime('now'), '29 January 2025 at 5:30pm')
-    assert.equal(govukDateTime('now', 'on'), '5:30pm on 29 January 2025')
+    assert.equal(
+      govukDateTime('now', { timeFirst: true }),
+      '5:30pm on 29 January 2025'
+    )
     assert.equal(govukDateTime('today'), '29 January 2025 at 5:30pm')
-    assert.equal(govukDateTime('today', 'on'), '5:30pm on 29 January 2025')
+    assert.equal(
+      govukDateTime('today', { timeFirst: true }),
+      '5:30pm on 29 January 2025'
+    )
   })
 
   it('Returns error converting an ISO 8601 date time to date time using the GOV.UK style', () => {
@@ -296,6 +337,13 @@ describe('monthName', async () => {
   it('Converts number into name of corresponding month.', () => {
     assert.equal(monthName(3), 'March')
     assert.equal(monthName('3'), 'March')
+  })
+
+  it('Converts number into truncated name of corresponding month.', () => {
+    assert.equal(monthName(3, { truncate: true }), 'Mar')
+    assert.equal(monthName('3', { truncate: true }), 'Mar')
+
+    // Using deprecated string parameter
     assert.equal(monthName(3, 'truncate'), 'Mar')
     assert.equal(monthName('3', 'truncate'), 'Mar')
   })

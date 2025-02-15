@@ -128,20 +128,6 @@ Convert an ISO 8601 date string into a human readable date that follows [the GOV
 
 > This filter only outputs a date. If you want to output the date and time from an ISO 8601 date string, use [`govukDateTime`](#govukdatetime).
 
-You can also output a date with a truncated month:
-
-**Input**
-
-```njk
-{{ "2021-08-17" | govukDate("truncate") }}
-```
-
-**Output**
-
-```html
-17 Aug 2021
-```
-
 To get the today’s date, pass the special word `"today"` (or `"now"`):
 
 **Input**
@@ -154,6 +140,25 @@ This page was last updated on {{ "today" | govukDate }}.
 
 ```html
 This page was last updated on 21 October 2021.
+```
+
+### `truncate`
+
+Use the `truncate` option to use a truncated month name. Default is `false`.
+
+**Input**
+
+```njk
+{{ "2021-08-17" | govukDate(truncate=true) }}
+
+// "truncate" is deprecated, and will be removed in v2.0
+{{ 3 | govukDate("truncate") }}
+```
+
+**Output**
+
+```html
+17 Aug 2021
 ```
 
 ---
@@ -224,20 +229,6 @@ Convert an ISO 8601 date string into a human readable date and time that follows
 17 August 2021 at 6:30pm
 ```
 
-You can also output the time before the date:
-
-**Input**
-
-```njk
-{{ "2021-08-17T18:30:00" | govukDateTime("on") }}
-```
-
-**Output**
-
-```html
-6:30pm on 17 August 2021
-```
-
 To get the current date and time, pass the special word `"now"` (or `"today"`):
 
 **Input**
@@ -278,6 +269,44 @@ If only a time is given, only a time will be output:
 
 ```html
 6:30pm
+```
+
+### `timeFirst`
+
+Use the `timeFirst` option to show the time before the date. Default is `false`.
+
+**Input**
+
+```njk
+{{ "2021-08-17T18:30:00" | govukDateTime(timeFirst=true) }}
+
+// "on" is deprecated, and will be removed in v2.0
+{{ 3 | govukDateTime("on") }}
+```
+
+**Output**
+
+```html
+6:30pm on 17 August 2021
+```
+
+### `truncate`
+
+Use the `truncate` option to use a truncated month name. Default is `false`.
+
+**Input**
+
+```njk
+{{ "2021-08-17T18:30:00" | govukDateTime(truncate=true) }}
+
+// "truncate" is deprecated, and will be removed in v2.0
+{{ 3 | govukDateTime("truncate") }}
+```
+
+**Output**
+
+```html
+17 Aug 2021 at 6:30pm
 ```
 
 ---
@@ -385,11 +414,16 @@ Convert a number (between 1 and 12) into the name of the corresponding month.
 March
 ```
 
-You can also output a truncated month name:
+### `truncate`
+
+Use the `truncate` option to use a truncated month name:
 
 **Input**
 
 ```njk
+{{ 3 | monthName(truncate=true) }}
+
+// "truncate" is deprecated, and will be removed in v2.0
 {{ 3 | monthName("truncate") }}
 ```
 
