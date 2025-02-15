@@ -3,34 +3,46 @@ const { describe, it } = require('node:test')
 
 const { currency, isNumber, ordinal, plural } = require('../lib/number.js')
 
-describe('Number filters', async () => {
+describe('currency', async () => {
   it('Converts number into a string formatted as currency', () => {
     assert.equal(currency(81932), '£81,932.00')
     assert.equal(currency(133.66667), '£133.67')
     assert.equal(currency(75.5), '£75.50')
+  })
+
+  it('Converts number into a string formatted as a foreign currency', () => {
     assert.equal(currency(75, { unit: 'USD' }), 'US$75.00')
     assert.equal(currency(75, { display: 'symbol', unit: 'USD' }), 'US$75.00')
     assert.equal(
       currency(75, { display: 'code', unit: 'USD' }),
       'USD\u00A075.00'
     )
+  })
+
+  it('Converts number into a string formatted as a currency without trailing zeros', () => {
     assert.equal(currency(75.0015, { trailingZeros: false }), '£75')
     assert.equal(
       currency(75, { display: 'name', trailingZeros: false, unit: 'USD' }),
       '75.00 US dollars'
     )
   })
+})
 
+describe('isNumber', async () => {
   it('Checks value is classified as a `Number` primitive or object', () => {
     assert.equal(isNumber(1801), true)
     assert.equal(isNumber('1801'), false)
   })
+})
 
+describe('ordinal', async () => {
   it('Converts number into an ordinal numeral', () => {
     assert.equal(ordinal(4), 'fourth')
     assert.equal(ordinal(22), '22nd')
   })
+})
 
+describe('plural', async () => {
   it('Gets the plural word form for an item for a given number', () => {
     assert.equal(plural(1, 'mouse'), '1 mouse')
     assert.equal(plural(2, 'mouse'), '2 mice')

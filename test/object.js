@@ -3,13 +3,15 @@ const { describe, it } = require('node:test')
 
 const { isObject, objectToArray } = require('../lib/object.js')
 
-describe('Object filters', async () => {
+describe('isObject', async () => {
   it('Checks value is the language type of `Object`', () => {
     assert.equal(isObject({ country: 'england' }), true)
     assert.equal(isObject(['england', 'scotland', 'wales']), true)
     assert.equal(isObject('great britain'), false)
   })
+})
 
+describe('objectToArray', async () => {
   it('Converts object into an array, using key name as value for id', () => {
     assert.deepEqual(
       objectToArray({

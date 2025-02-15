@@ -11,7 +11,7 @@ const {
   monthName
 } = require('../lib/date.js')
 
-describe('Date filters', async () => {
+describe('daysAgo', async () => {
   it('Returns correct number of days ago', () => {
     const dateNow = new Date()
     const yesterday = new Date(dateNow)
@@ -27,7 +27,9 @@ describe('Date filters', async () => {
   it('Returns error if date can’t be parsed', () => {
     assert.equal(daysAgo('2021-23-45'), 'Invalid DateTime')
   })
+})
 
+describe('duration', async () => {
   it('Returns date a certain number of days from another date', () => {
     const dt = new Date()
     dt.setDate(dt.getDate() + 5)
@@ -58,7 +60,9 @@ describe('Date filters', async () => {
   it('Returns error trying to return a date from another date', () => {
     assert.equal(duration('2021-23-45', 5), 'Invalid DateTime')
   })
+})
 
+describe('Date filters', async () => {
   it('Converts ISO 8601 date time to a date using the GOV.UK style', () => {
     assert.equal(govukDate('2021-08-17'), '17 August 2021')
     assert.equal(govukDate('2021-08-17', 'truncate'), '17 Aug 2021')
@@ -82,7 +86,9 @@ describe('Date filters', async () => {
   it('Returns error converting ISO 8601 date to date with GOV.UK style', () => {
     assert.equal(govukDate('2021-23-45'), 'Invalid DateTime')
   })
+})
 
+describe('govukTime', async () => {
   it('Converts ISO 8601 date time to a time with the GOV.UK style', () => {
     assert.equal(govukTime('2021-08-17T18:30:00'), '6:30pm')
     assert.equal(govukTime('2021-08-17T00:00:59'), '12am (midnight)')
@@ -101,7 +107,9 @@ describe('Date filters', async () => {
   it('Returns error converting an ISO 8601 date time to a time using the GOV.UK style', () => {
     assert.equal(govukTime('2021-08-17T25:61:00'), 'Invalid DateTime')
   })
+})
 
+describe('govukDateTime', async () => {
   it('Converts ISO 8601 date time to date time with the GOV.UK style', () => {
     assert.equal(
       govukDateTime('2021-08-17T18:30:00'),
@@ -139,7 +147,9 @@ describe('Date filters', async () => {
       '17 August 2021 at Invalid DateTime'
     )
   })
+})
 
+describe('isoDateFromDateInput', async () => {
   it('Converts `govukDateInput` values to ISO 8601 date', () => {
     assert.equal(
       isoDateFromDateInput({
@@ -280,7 +290,9 @@ describe('Date filters', async () => {
       'Invalid DateTime'
     )
   })
+})
 
+describe('monthName', async () => {
   it('Converts number into name of corresponding month.', () => {
     assert.equal(monthName(3), 'March')
     assert.equal(monthName('3'), 'March')

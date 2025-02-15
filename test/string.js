@@ -10,7 +10,7 @@ const {
   startsWith
 } = require('../lib/string.js')
 
-describe('String filters', async () => {
+describe('govukMarkdown', async () => {
   it('Converts Markdown formatted string to HTML', () => {
     assert.equal(
       govukMarkdown('He said, -- "A \'simple\' sentence..." --- unknown'),
@@ -21,12 +21,16 @@ describe('String filters', async () => {
       '<h1 class="govuk-heading-l" id="large-heading">Large heading</h1>'
     )
   })
+})
 
+describe('isString', async () => {
   it('Checks value is classified as a `String`', () => {
     assert.equal(isString('Number 10'), true)
     assert.equal(isString(10), false)
   })
+})
 
+describe('noOrphans', async () => {
   it('Inserts non-breaking space between the last two words of a string', () => {
     assert.equal(
       noOrphans('Department for Education'),
@@ -34,18 +38,24 @@ describe('String filters', async () => {
     )
     assert.equal(noOrphans('Government'), 'Government')
   })
+})
 
+describe('slugify', async () => {
   it('Converts string to kebab-case', () => {
     assert.equal(
       slugify('Department for Education'),
       'department-for-education'
     )
   })
+})
 
+describe('startsWith', async () => {
   it('Checks string starts with a value', () => {
     assert.equal(startsWith('Department of Transport', 'Department'), true)
   })
+})
 
+describe('arrayOrStringIncludes', async () => {
   it('Returns true if a string includes string given', () => {
     assert.equal(arrayOrStringIncludes('Oranges are great', 'Orange'), true)
   })
