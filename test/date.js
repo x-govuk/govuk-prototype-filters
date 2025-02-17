@@ -54,6 +54,10 @@ describe('age', async () => {
     assert.equal(age('2022-10-14'), '3 years')
   })
 
+  it('Takes an optional `at` keyword argument', () => {
+    assert.equal(age('2000-01-25', { at: '2025-01-25' }), '25 years')
+  })
+
   it('Returns error if date can’t be parsed', () => {
     assert.equal(age('2024-12-32'), 'Invalid DateTime')
   })
