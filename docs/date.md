@@ -30,6 +30,22 @@ If the birth date is less than 2 years ago, the age is returned in months. If th
 5 years
 ```
 
+### `at`
+
+Use the `at` option to provide a reference date from which to calculate a person’s age. Default is today’s date.
+
+**Input**
+
+```njk
+{{ "2000-01-25" | age(at=2025-01-25) }}
+```
+
+**Output**
+
+```html
+25 years
+```
+
 ## daysAgo
 
 Return how many days ago a date was.
