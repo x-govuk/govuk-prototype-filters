@@ -2,6 +2,7 @@ const assert = require('node:assert/strict')
 const { describe, it } = require('node:test')
 
 const {
+  age,
   daysAgo,
   duration,
   govukDate,
@@ -10,6 +11,40 @@ const {
   isoDateFromDateInput,
   monthName
 } = require('../lib/date.js')
+
+describe('age', async () => {
+  it('Returns an age in weeks, until 6 months', (context) => {
+    // Mock now as 1 January 2025 at 10:00am
+    context.mock.timers.enable({ apis: ['Date'], now: 1735725600000 })
+
+    assert.equal(age('2024-12-31'), '1 week')
+    assert.equal(age('2024-12-17'), '2 weeks')
+  })
+
+  it('Returns an age in months, until 2 years', (context) => {
+    // Mock now as 1 January 2025 at 10:00am
+    context.mock.timers.enable({ apis: ['Date'], now: 1735725600000 })
+
+    assert.equal(age('2024-01-01'), '12 months')
+  })
+
+  it('Returns an age in years', (context) => {
+    // Mock now as 1 January 2025 at 10:00am
+    context.mock.timers.enable({ apis: ['Date'], now: 1735725600000 })
+
+    assert.equal(age('2023-01-01'), '2 years')
+
+    // Before birthday
+    assert.equal(age('2021-01-02'), '3 years')
+
+    // After birthday
+    assert.equal(age('2020-12-31'), '4 years')
+  })
+
+  it('Returns error if date can’t be parsed', () => {
+    assert.equal(age('2024-12-32'), 'Invalid DateTime')
+  })
+})
 
 describe('daysAgo', async () => {
   it('Returns correct number of days ago', () => {
