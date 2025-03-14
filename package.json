@@ -1,6 +1,6 @@
 {
   "name": "@x-govuk/govuk-prototype-filters",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "Prototype with data using helpful template filters",
   "keywords": [
     "prototyping",
