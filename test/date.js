@@ -138,7 +138,7 @@ describe('Date filters', async () => {
   it('Converts ISO 8601 date time with day of the week', () => {
     assert.equal(
       govukDate('2021-08-17T12:00:00', { showWeekday: true }),
-      'Tuesday 17 August 2021'
+      'Tuesday, 17 August 2021'
     )
     assert.equal(
       govukDate('2021-08-17T12:00:00', {
@@ -235,14 +235,14 @@ describe('govukDateTime', async () => {
   it('Converts ISO 8601 date time to date time with day of the week', () => {
     assert.equal(
       govukDateTime('2021-08-17T12:00:00', { showWeekday: true }),
-      'Tuesday 17 August 2021 at 12pm (midday)'
+      'Tuesday, 17 August 2021 at 12pm (midday)'
     )
     assert.equal(
       govukDateTime('2021-08-17T12:00:00', {
         showWeekday: true,
         timeFirst: true
       }),
-      '12pm (midday) on Tuesday 17 August 2021'
+      '12pm (midday) on Tuesday, 17 August 2021'
     )
     assert.equal(
       govukDateTime('2021-08-17T12:00:00', {

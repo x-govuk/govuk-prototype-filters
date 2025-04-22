@@ -213,7 +213,7 @@ Use the `showWeekday` option to show the day of the week. Default is `false`.
 **Output**
 
 ```html
-Tuesday 17 August 2021
+Tuesday, 17 August 2021
 ```
 
 ---
@@ -377,7 +377,7 @@ Use the `showWeekday` option to show the day of the week. Default is `false`.
 **Output**
 
 ```html
-Tuesday 17 August 2021 at 6:30pm
+Tuesday, 17 August 2021 at 6:30pm
 ```
 
 ---
