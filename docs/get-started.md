@@ -6,7 +6,7 @@ title: Get started
 
 ## Requirements
 
-Node.js v18 or later.
+Node.js v22 or later.
 
 ## Installation
 
