@@ -1,5 +1,8 @@
 import process from 'node:process'
-import govukEleventyPlugin from '@x-govuk/govuk-eleventy-plugin'
+
+import { govukEleventyPlugin } from '@x-govuk/govuk-eleventy-plugin'
+
+const serviceName = 'GOV.UK Prototype Filters'
 
 export default function (eleventyConfig) {
   // Plugins
@@ -13,18 +16,21 @@ export default function (eleventyConfig) {
     },
     opengraphImageUrl:
       'https://x-govuk.github.io/govuk-prototype-filters/assets/opengraph-image.png',
-    homeKey: 'GOV.UK Prototype Filters',
-    titleSuffix: 'GOV.UK Prototype Filters',
-    parentSite: {
-      url: 'https://x-govuk.github.io/#projects',
-      name: 'X-GOVUK projects'
-    },
+    titleSuffix: serviceName,
+    homeKey: serviceName,
+    showBreadcrumbs: false,
     url:
       process.env.GITHUB_ACTIONS &&
       'https://x-govuk.github.io/govuk-prototype-filters/',
+    stylesheets: ['/assets/application.css'],
     header: {
-      logotype: 'x-govuk',
-      productName: 'Prototype Filters',
+      homepageUrl: 'https://x-govuk.github.io'
+    },
+    serviceNavigation: {
+      serviceName,
+      serviceUrl: process.env.GITHUB_ACTIONS
+        ? '/govuk-prototype-filters/'
+        : '/',
       search: {
         indexPath: '/search.json',
         sitemapPath: '/sitemap'
@@ -48,11 +54,15 @@ export default function (eleventyConfig) {
           }
         ]
       }
-    }
+    },
+    rebrand: true
   })
 
   // Passthrough
   eleventyConfig.addPassthroughCopy('./docs/assets')
+
+  // Enable X-GOVUK brand
+  eleventyConfig.addNunjucksGlobal('xGovuk', true)
 
   // Config
   return {
@@ -60,8 +70,7 @@ export default function (eleventyConfig) {
     htmlTemplateEngine: 'njk',
     markdownTemplateEngine: false,
     dir: {
-      input: 'docs',
-      layouts: '../node_modules/@x-govuk/govuk-eleventy-plugin/layouts'
+      input: 'docs'
     },
     pathPrefix: process.env.GITHUB_ACTIONS && '/govuk-prototype-filters/'
   }
