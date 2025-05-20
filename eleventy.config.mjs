@@ -16,6 +16,7 @@ export default function (eleventyConfig) {
     },
     opengraphImageUrl:
       'https://x-govuk.github.io/govuk-prototype-filters/assets/opengraph-image.png',
+    themeColor: '#2288aa',
     titleSuffix: serviceName,
     homeKey: serviceName,
     showBreadcrumbs: false,
