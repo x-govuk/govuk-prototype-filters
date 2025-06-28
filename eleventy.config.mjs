@@ -55,8 +55,7 @@ export default function (eleventyConfig) {
           }
         ]
       }
-    },
-    rebrand: true
+    }
   })
 
   // Passthrough
