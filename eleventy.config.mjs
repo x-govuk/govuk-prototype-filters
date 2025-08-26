@@ -7,36 +7,6 @@ const serviceName = 'GOV.UK Prototype Filters'
 export default function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(govukEleventyPlugin, {
-    icons: {
-      mask: 'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-icon-mask.svg?raw=true',
-      shortcut:
-        'https://raw.githubusercontent.com/x-govuk/logo/main/images/favicon.ico',
-      touch:
-        'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-icon-180.png'
-    },
-    opengraphImageUrl:
-      'https://x-govuk.github.io/govuk-prototype-filters/assets/opengraph-image.png',
-    themeColor: '#2288aa',
-    titleSuffix: serviceName,
-    homeKey: serviceName,
-    showBreadcrumbs: false,
-    url:
-      process.env.GITHUB_ACTIONS &&
-      'https://x-govuk.github.io/govuk-prototype-filters/',
-    stylesheets: ['/assets/application.css'],
-    header: {
-      homepageUrl: 'https://x-govuk.github.io'
-    },
-    serviceNavigation: {
-      serviceName,
-      serviceUrl: process.env.GITHUB_ACTIONS
-        ? '/govuk-prototype-filters/'
-        : '/',
-      search: {
-        indexPath: '/search.json',
-        sitemapPath: '/sitemap'
-      }
-    },
     footer: {
       contentLicence: {
         html: 'Licensed under the <a class="govuk-footer__link" href="https://github.com/x-govuk/govuk-prototype-components/blob/main/LICENSE.txt">MIT Licence</a>, except where otherwise stated'
@@ -55,7 +25,37 @@ export default function (eleventyConfig) {
           }
         ]
       }
-    }
+    },
+    header: {
+      homepageUrl: 'https://x-govuk.github.io'
+    },
+    homeKey: serviceName,
+    icons: {
+      mask: 'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-icon-mask.svg?raw=true',
+      shortcut:
+        'https://raw.githubusercontent.com/x-govuk/logo/main/images/favicon.ico',
+      touch:
+        'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-icon-180.png'
+    },
+    opengraphImageUrl:
+      'https://x-govuk.github.io/govuk-prototype-filters/assets/opengraph-image.png',
+    serviceNavigation: {
+      serviceName,
+      serviceUrl: process.env.GITHUB_ACTIONS
+        ? '/govuk-prototype-filters/'
+        : '/',
+      search: {
+        indexPath: '/search.json',
+        sitemapPath: '/sitemap'
+      }
+    },
+    showBreadcrumbs: false,
+    stylesheets: ['/assets/application.css'],
+    themeColor: '#2288aa',
+    titleSuffix: serviceName,
+    url:
+      process.env.GITHUB_ACTIONS &&
+      'https://x-govuk.github.io/govuk-prototype-filters/'
   })
 
   // Passthrough
