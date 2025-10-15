@@ -289,6 +289,17 @@ describe('isoDateFromDateInput', async () => {
     )
   })
 
+  it('Converts an object with date values as numbers to ISO 8601 date', () => {
+    assert.equal(
+      isoDateFromDateInput({
+        day: 1,
+        month: 2,
+        year: 2012
+      }),
+      '2012-02-01'
+    )
+  })
+
   it('Converts `govukDateInput` values with a full-length word for the month to ISO 8601 date', () => {
     assert.equal(
       isoDateFromDateInput({
