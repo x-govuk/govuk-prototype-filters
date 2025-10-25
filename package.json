@@ -58,6 +58,6 @@
     "node": ">=22"
   },
   "np": {
-    "publish": "false"
+    "publish": false
   }
 }
