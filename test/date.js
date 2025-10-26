@@ -64,7 +64,10 @@ describe('age', async () => {
 })
 
 describe('daysAgo', async () => {
-  it('Returns correct number of days ago', () => {
+  it('Returns correct number of days ago', (context) => {
+    // Mock now as 15 October 2025 at 10:00am
+    context.mock.timers.enable({ apis: ['Date'], now: 1760522400000 })
+
     const dateNow = new Date()
     const yesterday = new Date(dateNow)
     yesterday.setDate(yesterday.getDate() - 1)
@@ -82,7 +85,7 @@ describe('daysAgo', async () => {
 })
 
 describe('duration', async () => {
-  it('Returns date a certain number of days from another date', () => {
+  it('Returns date a certain number of days from another date', (context) => {
     const dt = new Date()
     dt.setDate(dt.getDate() + 5)
 
