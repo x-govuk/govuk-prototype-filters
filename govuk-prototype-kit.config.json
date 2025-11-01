@@ -2,7 +2,7 @@
   "meta": {
     "description": "Use this GOV.UK Prototype Kit plugin to add helpful filters to Nunjucks templates. Rapidly modify and transform data while ensuring it follows the GOV.UK style guide.",
     "urls": {
-      "documentation": "https://x-govuk.org/govuk-prototype-filters",
+      "documentation": "https://govuk-prototype-filters.x-govuk.org",
       "releaseNotes": "https://github.com/x-govuk/govuk-prototype-filters/releases/tag/v{{version}}",
       "versionHistory": "https://github.com/x-govuk/govuk-prototype-filters/releases"
     }
