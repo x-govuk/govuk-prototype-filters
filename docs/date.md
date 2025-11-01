@@ -392,9 +392,9 @@ When prefixed using a `namePrefix`, these values are stored with names prefixed 
 
 ```js
 const data = {
-  `dob-day`: '01',
-  `dob-month`: '02',
-  `dob-year`: '2012',
+  `dob-day`: "01",
+  `dob-month`: "02",
+  `dob-year`: "2012",
 }
 ```
 
@@ -429,8 +429,8 @@ It’s possible to configure `govukDateInput` so that only certain parts of a da
 ```js
 const data = {
   passport: {
-    month: '5',
-    year: '2001',
+    month: "5",
+    year: "2001",
   }
 }
 ```
@@ -450,9 +450,9 @@ The filter also accepts month names written out in full or abbreviated form (for
 ```js
 const data = {
   expires: {
-    day: '23',
-    month: 'april',
-    year: '2024',
+    day: "23",
+    month: "april",
+    year: "2024",
   }
 }
 ```

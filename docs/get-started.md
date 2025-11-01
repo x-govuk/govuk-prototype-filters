@@ -53,10 +53,10 @@ If you are using an earlier version of the Prototype Kit, import the filters int
 Using [Nunjucks’ `addFilter` method](https://mozilla.github.io/nunjucks/api.html#addfilter) you can add individual filters to your Nunjucks environment:
 
 ```js
-const { slugify } = require('@x-govuk/govuk-prototype-filters')
-const nunjucks = require('nunjucks')
+const { slugify } = require("@x-govuk/govuk-prototype-filters")
+const nunjucks = require("nunjucks")
 
-const nunjucksEnv = nunjucks.configure(['./app/views'])
+const nunjucksEnv = nunjucks.configure(["./app/views"])
 
 nunjucksEnv.addFilter("slugify", slugify)
 ```
