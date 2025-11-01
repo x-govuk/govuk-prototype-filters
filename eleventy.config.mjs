@@ -1,5 +1,3 @@
-import process from 'node:process'
-
 import { govukEleventyPlugin } from '@x-govuk/govuk-eleventy-plugin'
 
 const serviceName = 'GOV.UK Prototype Filters'
@@ -38,12 +36,10 @@ export default function (eleventyConfig) {
         'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-icon-180.png'
     },
     opengraphImageUrl:
-      'https://x-govuk.org/govuk-prototype-filters/assets/opengraph-image.png',
+      'https://govuk-prototype-filters.x-govuk.org/assets/opengraph-image.png',
     serviceNavigation: {
       serviceName,
-      serviceUrl: process.env.GITHUB_ACTIONS
-        ? '/govuk-prototype-filters/'
-        : '/',
+      serviceUrl: '/',
       search: {
         indexPath: '/search-index.json',
         sitemapPath: '/sitemap'
@@ -55,10 +51,7 @@ export default function (eleventyConfig) {
       searchIndex: true
     },
     themeColor: '#2288aa',
-    titleSuffix: serviceName,
-    url:
-      process.env.GITHUB_ACTIONS &&
-      'https://x-govuk.org/govuk-prototype-filters/'
+    titleSuffix: serviceName
   })
 
   // Passthrough
@@ -74,7 +67,6 @@ export default function (eleventyConfig) {
     markdownTemplateEngine: false,
     dir: {
       input: 'docs'
-    },
-    pathPrefix: process.env.GITHUB_ACTIONS && '/govuk-prototype-filters/'
+    }
   }
 }

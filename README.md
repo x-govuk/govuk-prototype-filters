@@ -16,7 +16,7 @@ npm install @x-govuk/govuk-prototype-filters
 
 If you are using version 13 or later of the GOV.UK Prototype Kit, the filters will be immediately available for use in Nunjucks templates.
 
-Learn more about how to [get started](https://x-govuk.org/govuk-prototype-filters/get-started/).
+Learn more about how to [get started](https://govuk-prototype-filters.x-govuk.org/get-started/).
 
 ## Contributing
 
