@@ -27,7 +27,7 @@ export default function (eleventyConfig) {
       }
     },
     header: {
-      homepageUrl: 'https://x-govuk.github.io'
+      homepageUrl: 'https://x-govuk.org'
     },
     homeKey: serviceName,
     icons: {
@@ -38,7 +38,7 @@ export default function (eleventyConfig) {
         'https://raw.githubusercontent.com/x-govuk/logo/main/images/x-govuk-icon-180.png'
     },
     opengraphImageUrl:
-      'https://x-govuk.github.io/govuk-prototype-filters/assets/opengraph-image.png',
+      'https://x-govuk.org/govuk-prototype-filters/assets/opengraph-image.png',
     serviceNavigation: {
       serviceName,
       serviceUrl: process.env.GITHUB_ACTIONS
@@ -58,7 +58,7 @@ export default function (eleventyConfig) {
     titleSuffix: serviceName,
     url:
       process.env.GITHUB_ACTIONS &&
-      'https://x-govuk.github.io/govuk-prototype-filters/'
+      'https://x-govuk.org/govuk-prototype-filters/'
   })
 
   // Passthrough
