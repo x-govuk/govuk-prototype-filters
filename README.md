@@ -4,7 +4,7 @@ Use this GOV.UK Prototype Kit plugin to add helpful filters to Nunjucks template
 
 ## Requirements
 
-Node.js v22 or later.
+Node.js v22.12 or later.
 
 ## Installation
 
