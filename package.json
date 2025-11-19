@@ -40,7 +40,7 @@
   "dependencies": {
     "govuk-markdown": "^0.8.0",
     "luxon": "^3.2.1",
-    "marked": "^16.0.0",
+    "marked": "^17.0.0",
     "marked-smartypants": "^1.0.0",
     "pluralize": "^8.0.0"
   },
