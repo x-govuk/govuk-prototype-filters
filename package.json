@@ -11,31 +11,28 @@
   "bugs": {
     "url": "https://github.com/x-govuk/govuk-prototype-filters/issues"
   },
-  "license": "MIT",
-  "files": [
-    "lib",
-    "govuk-prototype-kit.config.json"
-  ],
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/x-govuk/govuk-prototype-filters.git"
   },
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "lib",
+    "govuk-prototype-kit.config.json"
+  ],
   "scripts": {
     "build": "eleventy --quiet",
-    "start": "eleventy --serve --quiet",
-    "lint:prettier": "prettier . --check",
-    "lint:prettier:fix": "prettier . --write",
-    "lint:js": "eslint '**/*.js'",
-    "lint:js:fix": "eslint '**/*.js' --fix",
+    "coverage": "node --test --experimental-test-coverage",
     "lint": "npm run lint:prettier && npm run lint:js",
     "lint:fix": "npm run lint:prettier:fix && npm run lint:js:fix",
-    "test": "node --test && npx govuk-prototype-kit@latest validate-plugin",
-    "coverage": "node --test --experimental-test-coverage",
-    "release": "np --no-publish"
-  },
-  "publishConfig": {
-    "access": "public"
+    "lint:js": "eslint '**/*.js'",
+    "lint:js:fix": "eslint '**/*.js' --fix",
+    "lint:prettier": "prettier . --check",
+    "lint:prettier:fix": "prettier . --write",
+    "release": "np --no-publish",
+    "start": "eleventy --serve --quiet",
+    "test": "node --test && npx govuk-prototype-kit@latest validate-plugin"
   },
   "dependencies": {
     "govuk-markdown": "^0.8.0",
@@ -56,5 +53,8 @@
   },
   "engines": {
     "node": ">=22.12"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
