@@ -52,7 +52,7 @@
     "govuk-prototype-kit": "^13.0.0"
   },
   "engines": {
-    "node": ">=22.12"
+    "node": ">=22.22"
   },
   "publishConfig": {
     "access": "public"
