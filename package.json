@@ -36,17 +36,17 @@
   },
   "dependencies": {
     "govuk-markdown": "^0.8.0",
-    "luxon": "^3.2.1",
-    "marked": "^17.0.0",
-    "marked-smartypants": "^1.0.0",
+    "luxon": "^3.7.2",
+    "marked": "^18.0.4",
+    "marked-smartypants": "^1.1.12",
     "pluralize": "^8.0.0"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy": "^3.1.5",
     "@x-govuk/eslint-config": "^0.0.2",
-    "@x-govuk/govuk-eleventy-plugin": "^9.0.0",
-    "np": "^11.0.0",
-    "prettier": "^3.1.0"
+    "@x-govuk/govuk-eleventy-plugin": "^9.0.1",
+    "np": "^11.2.1",
+    "prettier": "^3.8.3"
   },
   "peerDependencies": {
     "govuk-prototype-kit": "^13.0.0"
