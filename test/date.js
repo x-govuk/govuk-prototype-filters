@@ -85,7 +85,7 @@ describe('daysAgo', async () => {
 })
 
 describe('duration', async () => {
-  it('Returns date a certain number of days from another date', (context) => {
+  it('Returns date a certain number of days from another date', () => {
     const dt = new Date()
     dt.setDate(dt.getDate() + 5)
 
