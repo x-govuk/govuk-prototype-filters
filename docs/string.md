@@ -68,6 +68,22 @@ Start headings using the smaller size by setting the `headingsStartWith` option:
 <h4 class="govuk-heading-s">Heading level 4</h4>
 ```
 
+### `inline`
+
+Render inline content without wrapping in block tags (e.g. `<p>`) by setting the `inline` option to `true`:
+
+**Input**
+
+```njk
+{{ "Visit [GOV.UK](https://gov.uk)." | govukMarkdown(inline: true) }}
+```
+
+**Output**
+
+```html
+Visit <a class="govuk-link" href="https://www.gov.uk">GOV.UK</a>.
+```
+
 ---
 
 ## includes
