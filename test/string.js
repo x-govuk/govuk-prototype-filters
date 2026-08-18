@@ -20,6 +20,12 @@ describe('govukMarkdown', async () => {
       govukMarkdown('# Large heading', { headingsStartWith: 'l' }),
       '<h1 class="govuk-heading-l" id="large-heading">Large heading</h1>'
     )
+    assert.equal(
+      govukMarkdown('He said, -- "A \'simple\' sentence..." --- unknown', {
+        inline: true
+      }),
+      'He said, &#8211; &#8220;A &#8216;simple&#8217; sentence&#8230;&#8221; &#8212; unknown'
+    )
   })
 })
 
